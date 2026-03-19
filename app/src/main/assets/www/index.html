@@ -1,0 +1,2846 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初二英语6个月闯关大冒险</title>
+    <!-- Tailwind CSS v3 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4361ee',
+                        secondary: '#3f37c9',
+                        accent: '#f72585',
+                        success: '#4cc9f0',
+                        warning: '#fca311',
+                        danger: '#e63946',
+                        light: '#f8f9fa',
+                        dark: '#212529'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 2s infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+            .btn-primary {
+                @apply bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-secondary transition-colors duration-300;
+            }
+            .btn-secondary {
+                @apply bg-light text-primary font-bold py-2 px-4 rounded-lg border border-primary hover:bg-gray-100 transition-colors duration-300;
+            }
+            .btn-success {
+                @apply bg-success text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-500 transition-colors duration-300;
+            }
+            .btn-danger {
+                @apply bg-danger text-white font-bold py-2 px-4 rounded-lg hover:bg-red-700 transition-colors duration-300;
+            }
+            .input-primary {
+                @apply border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent;
+            }
+            .progress-bar {
+                @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+            }
+            .progress-value {
+                @apply h-full bg-primary rounded-full transition-all duration-500;
+            }
+            .star-filled {
+                @apply text-warning;
+            }
+            .star-empty {
+                @apply text-gray-300;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- 背景图 -->
+    <div class="fixed inset-0 z-0 opacity-10 pointer-events-none">
+        <img src="https://p6-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/8ca691bdada644bb8c08f7f9b64ff7b5~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260319103003BE72A6AEF25DACA9D1E4&rrcfp=f06b921b&x-expires=1776479435&x-signature=SqwIvFBq1LUioGqJNRk3EeRiUss%3D" 
+             alt="背景" class="w-full h-full object-cover">
+    </div>
+
+    <!-- 主容器 -->
+    <div class="relative z-10 container mx-auto px-4 py-8">
+        <!-- 顶部导航 -->
+        <header class="flex justify-between items-center mb-8">
+            <div class="flex items-center">
+                <h1 class="text-3xl font-bold text-primary">初二英语闯关大冒险</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="medalBtn" class="btn-secondary flex items-center">
+                    <i class="fa fa-trophy mr-2"></i> 勋章
+                </button>
+                <button id="reportBtn" class="btn-secondary flex items-center">
+                    <i class="fa fa-bar-chart mr-2"></i> 报告
+                </button>
+                <button id="settingsBtn" class="btn-secondary flex items-center">
+                    <i class="fa fa-cog mr-2"></i> 设置
+                </button>
+            </div>
+        </header>
+
+        <!-- 主内容区 -->
+        <main>
+            <!-- 欢迎页面 -->
+            <section id="welcomeSection" class="block">
+                <div class="flex flex-col md:flex-row items-center justify-between bg-white rounded-xl shadow-md p-8 mb-8">
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <h2 class="text-4xl font-bold text-primary mb-4">欢迎加入英语闯关大冒险！</h2>
+                        <p class="text-lg text-gray-700 mb-6">
+                            这是一个为期6个月的英语学习计划，帮助你系统掌握中考英语核心知识点，每天只需完成一关，轻松提高英语成绩！
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fa fa-check-circle text-success text-xl mr-3"></i>
+                                <span>每天15-20分钟，轻松完成学习任务</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fa fa-check-circle text-success text-xl mr-3"></i>
+                                <span>系统学习1600个中考高频词汇</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fa fa-check-circle text-success text-xl mr-3"></i>
+                                <span>掌握中考必备语法知识点</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fa fa-check-circle text-success text-xl mr-3"></i>
+                                <span>游戏化学习，激发学习兴趣</span>
+                            </div>
+                        </div>
+                        <button id="startBtn" class="btn-primary mt-8 text-lg">
+                            开始冒险 <i class="fa fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                    <div class="md:w-2/5">
+                        <img src="https://p26-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/2dd4e44b091a4963ad8311f387efb268~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260319103003BE72A6AEF25DACA9D1E4&rrcfp=f06b921b&x-expires=1776479435&x-signature=xs6DEtfpLhTwEjN9DoExXDY%2B06s%3D" 
+                             alt="英语学习" class="w-full rounded-lg shadow-lg">
+                    </div>
+                </div>
+
+                <!-- 学习进度概览 -->
+                <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+                    <h3 class="text-2xl font-bold text-primary mb-6">学习进度概览</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-blue-50 rounded-lg p-6 text-center">
+                            <div class="text-4xl font-bold text-primary mb-2" id="daysCompleted">0</div>
+                            <div class="text-gray-600">已完成天数</div>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-6 text-center">
+                            <div class="text-4xl font-bold text-success mb-2" id="wordsLearned">0</div>
+                            <div class="text-gray-600">已学单词</div>
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-6 text-center">
+                            <div class="text-4xl font-bold text-accent mb-2" id="consecutiveDays">0</div>
+                            <div class="text-gray-600">连续打卡天数</div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">总体进度</span>
+                            <span class="font-medium" id="overallProgress">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" id="progressBar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 今日关卡 -->
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <h3 class="text-2xl font-bold text-primary mb-6">今日关卡</h3>
+                    <div id="todayLevel" class="bg-yellow-50 rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold mb-4">第 <span id="currentDay">1</span> 天</div>
+                        <p class="text-gray-700 mb-6">完成今天的学习任务，解锁下一关！</p>
+                        <button id="startTodayBtn" class="btn-primary text-lg">
+                            开始学习 <i class="fa fa-play-circle ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 学习页面 -->
+            <section id="learningSection" class="hidden">
+                <!-- 关卡信息 -->
+                <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h2 class="text-2xl font-bold text-primary">第 <span id="levelDay">1</span> 天</h2>
+                            <p class="text-gray-600">完成以下三个模块，即可通关</p>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="mr-2">进度：</span>
+                            <div class="progress-bar w-40">
+                                <div class="progress-value" id="levelProgressBar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 模块导航 -->
+                <div class="flex flex-wrap gap-4 mb-6">
+                    <button id="vocabularyBtn" class="btn-primary flex-1">
+                        <i class="fa fa-book mr-2"></i> 单词闯关
+                    </button>
+                    <button id="phrasesBtn" class="btn-secondary flex-1" disabled>
+                        <i class="fa fa-comments mr-2"></i> 词组闯关
+                    </button>
+                    <button id="grammarBtn" class="btn-secondary flex-1" disabled>
+                        <i class="fa fa-code mr-2"></i> 语法闯关
+                    </button>
+                    <button id="readingBtn" class="btn-secondary flex-1" disabled>
+                        <i class="fa fa-newspaper-o mr-2"></i> 阅读训练
+                    </button>
+                    <button id="listeningBtn" class="btn-secondary flex-1" disabled>
+                        <i class="fa fa-headphones mr-2"></i> 听力训练
+                    </button>
+                </div>
+
+                <!-- 单词模块 -->
+                <div id="vocabularyModule" class="bg-white rounded-xl shadow-md p-6 mb-6">
+                    <h3 class="text-xl font-bold text-primary mb-4">单词闯关</h3>
+                    <p class="text-gray-700 mb-6">请完成以下单词的学习和测试</p>
+                    
+                    <!-- 单词学习 -->
+                    <div id="vocabularyLearning" class="mb-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold">单词学习</h4>
+                            <span id="wordProgress">1/5</span>
+                        </div>
+                        
+                        <div id="wordCard" class="bg-blue-50 rounded-lg p-6 mb-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h5 id="currentWord" class="text-3xl font-bold text-primary">achieve</h5>
+                                <button id="playAudioBtn" class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center">
+                                    <i class="fa fa-volume-up"></i>
+                                </button>
+                            </div>
+                            <div class="mb-2">
+                                <span class="text-gray-600">音标：</span>
+                                <span id="wordPhonetic">/əˈtʃiːv/</span>
+                            </div>
+                            <div class="mb-2">
+                                <span class="text-gray-600">释义：</span>
+                                <span id="wordDefinition">实现，达到</span>
+                            </div>
+                            <div class="mb-2">
+                                <span class="text-gray-600">例句：</span>
+                                <p id="wordExample">She has achieved a lot in her career.</p>
+                                <p id="wordTranslation" class="text-gray-600">她在事业上取得了很大成就。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button id="prevWordBtn" class="btn-secondary" disabled>
+                                <i class="fa fa-arrow-left mr-2"></i> 上一个
+                            </button>
+                            <button id="nextWordBtn" class="btn-primary">
+                                下一个 <i class="fa fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 单词测试 -->
+                    <div id="vocabularyTest" class="hidden">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold">单词测试</h4>
+                            <span id="testProgress">1/5</span>
+                        </div>
+                        
+                        <div id="testCard" class="bg-blue-50 rounded-lg p-6 mb-6">
+                            <h5 id="testWord" class="text-2xl font-bold mb-4">achieve</h5>
+                            
+                            <div id="testTypeTranslation" class="mb-4">
+                                <p class="mb-2">请选择正确的中文释义：</p>
+                                <div id="translationOptions" class="space-y-2">
+                                    <!-- 选项将通过JS动态生成 -->
+                                </div>
+                            </div>
+                            
+                            <div id="testTypeSpelling" class="hidden mb-4">
+                                <p class="mb-2">请根据发音和释义拼写单词：</p>
+                                <div class="flex items-center mb-2">
+                                    <button id="testPlayAudioBtn" class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-2">
+                                        <i class="fa fa-volume-up"></i>
+                                    </button>
+                                    <span id="testPhonetic">/əˈtʃiːv/</span>
+                                </div>
+                                <p class="mb-2">释义：<span id="testDefinition">实现，达到</span></p>
+                                <input type="text" id="spellingInput" class="input-primary w-full" placeholder="请输入单词">
+                            </div>
+                            
+                            <div id="testFeedback" class="hidden mt-4 p-3 rounded-lg">
+                                <!-- 反馈信息将通过JS动态生成 -->
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button id="prevTestBtn" class="btn-secondary" disabled>
+                                <i class="fa fa-arrow-left mr-2"></i> 上一题
+                            </button>
+                            <button id="nextTestBtn" class="btn-primary">
+                                下一题 <i class="fa fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 单词模块完成 -->
+                    <div id="vocabularyComplete" class="hidden text-center">
+                        <div class="text-5xl text-success mb-4">
+                            <i class="fa fa-check-circle"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-success mb-2">单词闯关完成！</h4>
+                        <p class="text-gray-700 mb-6">你已经成功完成了今天的单词学习和测试</p>
+                        <div class="flex justify-center mb-6">
+                            <div id="vocabularyStars" class="flex text-3xl">
+                                <i class="fa fa-star star-filled"></i>
+                                <i class="fa fa-star star-filled"></i>
+                                <i class="fa fa-star star-filled"></i>
+                            </div>
+                        </div>
+                        <button id="startPhrasesBtn" class="btn-primary">
+                            开始词组闯关 <i class="fa fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 词组模块 -->
+                <div id="phrasesModule" class="bg-white rounded-xl shadow-md p-6 mb-6 hidden">
+                    <h3 class="text-xl font-bold text-primary mb-4">词组闯关</h3>
+                    <p class="text-gray-700 mb-6">请完成以下词组的学习和测试</p>
+                    
+                    <!-- 词组学习 -->
+                    <div id="phrasesLearning" class="mb-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold">词组学习</h4>
+                            <span id="phraseProgress">1/5</span>
+                        </div>
+                        
+                        <div id="phraseCard" class="bg-green-50 rounded-lg p-6 mb-6">
+                            <h5 id="currentPhrase" class="text-2xl font-bold text-primary mb-2">achieve one's goal</h5>
+                            <p class="text-gray-700 mb-2">中文释义：<span id="phraseTranslation">实现目标</span></p>
+                            <p class="text-gray-700">例句：<span id="phraseExample">He finally achieved his goal of becoming a doctor.</span></p>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button id="prevPhraseBtn" class="btn-secondary" disabled>
+                                <i class="fa fa-arrow-left mr-2"></i> 上一个
+                            </button>
+                            <button id="nextPhraseBtn" class="btn-primary">
+                                下一个 <i class="fa fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 词组测试 -->
+                    <div id="phrasesTest" class="hidden">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold">词组测试</h4>
+                            <span id="phraseTestProgress">1/5</span>
+                        </div>
+                        
+                        <div id="phraseTestCard" class="bg-green-50 rounded-lg p-6 mb-6">
+                            <div id="phraseTestQuestion" class="mb-4">
+                                <!-- 问题将通过JS动态生成 -->
+                            </div>
+                            
+                            <div id="phraseTestOptions" class="space-y-2 mb-4">
+                                <!-- 选项将通过JS动态生成 -->
+                            </div>
+                            
+                            <div id="phraseTestFeedback" class="hidden mt-4 p-3 rounded-lg">
+                                <!-- 反馈信息将通过JS动态生成 -->
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button id="prevPhraseTestBtn" class="btn-secondary" disabled>
+                                <i class="fa fa-arrow-left mr-2"></i> 上一题
+                            </button>
+                            <button id="nextPhraseTestBtn" class="btn-primary">
+                                下一题 <i class="fa fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 词组模块完成 -->
+                    <div id="phrasesComplete" class="hidden text-center">
+                        <div class="text-5xl text-success mb-4">
+                            <i class="fa fa-check-circle"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-success mb-2">词组闯关完成！</h4>
+                        <p class="text-gray-700 mb-6">你已经成功完成了今天的词组学习和测试</p>
+                        <div class="flex justify-center mb-6">
+                            <div id="phrasesStars" class="flex text-3xl">
+                                <i class="fa fa-star star-filled"></i>
+                                <i class="fa fa-star star-filled"></i>
+                                <i class="fa fa-star star-filled"></i>
+                            </div>
+                        </div>
+                        <button id="startGrammarBtn" class="btn-primary">
+                            开始语法闯关 <i class="fa fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 语法模块 -->
+                <div id="grammarModule" class="bg-white rounded-xl shadow-md p-6 mb-6 hidden">
+                    <h3 class="text-xl font-bold text-primary mb-4">语法闯关</h3>
+                    <p class="text-gray-700 mb-6">请完成以下语法知识点的学习和测试</p>
+                    
+                    <!-- 语法学习 -->
+                    <div id="grammarLearning" class="mb-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold">语法知识点</h4>
+                        </div>
+                        
+                        <div id="grammarCard" class="bg-purple-50 rounded-lg p-6 mb-6">
+                            <h5 id="grammarTopic" class="text-2xl font-bold text-primary mb-4">一般现在时</h5>
+                            <p class="text-gray-700 mb-4">
+                                <strong>用法：</strong><span id="grammarExplanation">一般现在时表示经常性、习惯性的动作或状态，或客观事实和真理。</span>
+                            </p>
+                            <div class="mb-4">
+                                <strong>例句：</strong>
+                                <ul id="grammarExamples" class="list-disc pl-5 space-y-2 mt-2">
+                                    <!-- 例句将通过JS动态生成 -->
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button id="startGrammarTestBtn" class="btn-primary w-full">
+                            开始测试 <i class="fa fa-play-circle ml-2"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- 语法测试 -->
+                    <div id="grammarTest" class="hidden">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold">语法测试</h4>
+                            <span id="grammarTestLevel">基础题</span>
+                        </div>
+                        
+                        <div id="grammarTestCard" class="bg-purple-50 rounded-lg p-6 mb-6">
+                            <div id="grammarTestQuestion" class="mb-4">
+                                <!-- 问题将通过JS动态生成 -->
+                            </div>
+                            
+                            <div id="grammarTestOptions" class="space-y-2 mb-4">
+                                <!-- 选项将通过JS动态生成 -->
+                            </div>
+                            
+                            <div id="grammarTestFeedback" class="hidden mt-4 p-3 rounded-lg">
+                                <!-- 反馈信息将通过JS动态生成 -->
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button id="prevGrammarTestBtn" class="btn-secondary" disabled>
+                                <i class="fa fa-arrow-left mr-2"></i> 上一题
+                            </button>
+                            <button id="nextGrammarTestBtn" class="btn-primary">
+                                下一题 <i class="fa fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 语法模块完成 -->
+                    <div id="grammarComplete" class="hidden text-center">
+                        <div class="text-5xl text-success mb-4">
+                            <i class="fa fa-check-circle"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-success mb-2">语法闯关完成！</h4>
+                        <p class="text-gray-700 mb-6">你已经成功完成了今天的语法学习和测试</p>
+                        <div class="flex justify-center mb-6">
+                            <div id="grammarStars" class="flex text-3xl">
+                                <i class="fa fa-star star-filled"></i>
+                                <i class="fa fa-star star-filled"></i>
+                                <i class="fa fa-star star-filled"></i>
+                            </div>
+                        </div>
+                        <button id="startReadingBtn" class="btn-primary">
+                            开始阅读训练 <i class="fa fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 阅读训练模块 -->
+                <div id="readingModule" class="bg-white rounded-xl shadow-md p-6 mb-6 hidden">
+                    <h3 class="text-xl font-bold text-primary mb-4">阅读训练</h3>
+                    <p class="text-gray-700 mb-6">请完成以下阅读理解练习</p>
+                    
+                    <!-- 阅读学习 -->
+                    <div id="readingLearning" class="mb-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold">阅读文章</h4>
+                        </div>
+                        
+                        <div id="readingCard" class="bg-yellow-50 rounded-lg p-6 mb-6">
+                            <h5 id="readingTitle" class="text-xl font-bold text-primary mb-4">My Best Friend</h5>
+                            <p id="readingContent" class="text-gray-700 leading-relaxed mb-4">
+                                <!-- 阅读内容将通过JS动态生成 -->
+                            </p>
+                        </div>
+                        
+                        <button id="startReadingTestBtn" class="btn-primary w-full">
+                            开始测试 <i class="fa fa-play-circle ml-2"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- 阅读测试 -->
+                    <div id="readingTest" class="hidden">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold">阅读理解</h4>
+                            <span id="readingTestProgress">1/5</span>
+                        </div>
+                        
+                        <div id="readingTestCard" class="bg-yellow-50 rounded-lg p-6 mb-6">
+                            <div id="readingTestQuestion" class="mb-4">
+                                <!-- 问题将通过JS动态生成 -->
+                            </div>
+                            
+                            <div id="readingTestOptions" class="space-y-2 mb-4">
+                                <!-- 选项将通过JS动态生成 -->
+                            </div>
+                            
+                            <div id="readingTestFeedback" class="hidden mt-4 p-3 rounded-lg">
+                                <!-- 反馈信息将通过JS动态生成 -->
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button id="prevReadingTestBtn" class="btn-secondary" disabled>
+                                <i class="fa fa-arrow-left mr-2"></i> 上一题
+                            </button>
+                            <button id="nextReadingTestBtn" class="btn-primary">
+                                下一题 <i class="fa fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 阅读模块完成 -->
+                    <div id="readingComplete" class="hidden text-center">
+                        <div class="text-5xl text-success mb-4">
+                            <i class="fa fa-check-circle"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-success mb-2">阅读训练完成！</h4>
+                        <p class="text-gray-700 mb-6">你已经成功完成了今天的阅读训练</p>
+                        <div class="flex justify-center mb-6">
+                            <div id="readingStars" class="flex text-3xl">
+                                <i class="fa fa-star star-filled"></i>
+                                <i class="fa fa-star star-filled"></i>
+                                <i class="fa fa-star star-filled"></i>
+                            </div>
+                        </div>
+                        <button id="startListeningBtn" class="btn-primary">
+                            开始听力训练 <i class="fa fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 听力训练模块 -->
+                <div id="listeningModule" class="bg-white rounded-xl shadow-md p-6 mb-6 hidden">
+                    <h3 class="text-xl font-bold text-primary mb-4">听力训练</h3>
+                    <p class="text-gray-700 mb-6">请完成以下听力练习</p>
+                    
+                    <!-- 听力学习 -->
+                    <div id="listeningLearning" class="mb-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold">听力材料</h4>
+                        </div>
+                        
+                        <div id="listeningCard" class="bg-purple-50 rounded-lg p-6 mb-6">
+                            <h5 id="listeningTitle" class="text-xl font-bold text-primary mb-4">Daily Conversation</h5>
+                            <p class="text-gray-700 mb-4">
+                                请仔细听下面的对话，然后回答问题。
+                            </p>
+                            <div class="flex items-center justify-center mb-4">
+                                <button id="playListeningBtn" class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center">
+                                    <i class="fa fa-play text-2xl"></i>
+                                </button>
+                            </div>
+                            <div id="listeningTranscript" class="hidden bg-white p-4 rounded-lg text-sm">
+                                <!-- 听力原文将通过JS动态生成 -->
+                            </div>
+                            <button id="showTranscriptBtn" class="text-primary hover:underline">
+                                查看原文
+                            </button>
+                        </div>
+                        
+                        <button id="startListeningTestBtn" class="btn-primary w-full">
+                            开始测试 <i class="fa fa-play-circle ml-2"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- 听力测试 -->
+                    <div id="listeningTest" class="hidden">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold">听力理解</h4>
+                            <span id="listeningTestProgress">1/5</span>
+                        </div>
+                        
+                        <div id="listeningTestCard" class="bg-purple-50 rounded-lg p-6 mb-6">
+                            <div class="flex items-center justify-center mb-4">
+                                <button id="playTestAudioBtn" class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center">
+                                    <i class="fa fa-play"></i>
+                                </button>
+                            </div>
+                            
+                            <div id="listeningTestQuestion" class="mb-4">
+                                <!-- 问题将通过JS动态生成 -->
+                            </div>
+                            
+                            <div id="listeningTestOptions" class="space-y-2 mb-4">
+                                <!-- 选项将通过JS动态生成 -->
+                            </div>
+                            
+                            <div id="listeningTestFeedback" class="hidden mt-4 p-3 rounded-lg">
+                                <!-- 反馈信息将通过JS动态生成 -->
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button id="prevListeningTestBtn" class="btn-secondary" disabled>
+                                <i class="fa fa-arrow-left mr-2"></i> 上一题
+                            </button>
+                            <button id="nextListeningTestBtn" class="btn-primary">
+                                下一题 <i class="fa fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- 听力模块完成 -->
+                    <div id="listeningComplete" class="hidden text-center">
+                        <div class="text-5xl text-success mb-4">
+                            <i class="fa fa-check-circle"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-success mb-2">听力训练完成！</h4>
+                        <p class="text-gray-700 mb-6">你已经成功完成了今天的听力训练</p>
+                        <div class="flex justify-center mb-6">
+                            <div id="listeningStars" class="flex text-3xl">
+                                <i class="fa fa-star star-filled"></i>
+                                <i class="fa fa-star star-filled"></i>
+                                <i class="fa fa-star star-filled"></i>
+                            </div>
+                        </div>
+                        <button id="completeLevelBtn" class="btn-primary">
+                            完成今日关卡 <i class="fa fa-flag-checkered ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                        <h4 class="text-2xl font-bold text-success mb-2">语法闯关完成！</h4>
+                        <p class="text-gray-700 mb-6">你已经成功完成了今天的语法学习和测试</p>
+                        <div class="flex justify-center mb-6">
+                            <div id="grammarStars" class="flex text-3xl">
+                                <i class="fa fa-star star-filled"></i>
+                                <i class="fa fa-star star-filled"></i>
+                                <i class="fa fa-star star-filled"></i>
+                            </div>
+                        </div>
+                        <button id="completeLevelBtn" class="btn-primary">
+                            完成今日关卡 <i class="fa fa-flag-checkered ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 关卡完成页面 -->
+            <section id="completeSection" class="hidden">
+                <div class="bg-white rounded-xl shadow-md p-8 text-center">
+                    <div class="text-6xl text-success mb-6">
+                        <i class="fa fa-trophy"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-primary mb-4">恭喜你完成第 <span id="completeDay">1</span> 天的学习！</h2>
+                    <p class="text-gray-700 mb-6">你已经成功解锁下一关，继续加油！</p>
+                    
+                    <!-- 今日成绩 -->
+                    <div class="bg-yellow-50 rounded-lg p-6 mb-8">
+                        <h3 class="text-xl font-bold mb-4">今日成绩</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                            <div>
+                                <p class="text-gray-600 mb-2">单词部分</p>
+                                <div id="completeVocabularyStars" class="flex text-2xl justify-center">
+                                    <!-- 星星将通过JS动态生成 -->
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-gray-600 mb-2">词组部分</p>
+                                <div id="completePhrasesStars" class="flex text-2xl justify-center">
+                                    <!-- 星星将通过JS动态生成 -->
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-gray-600 mb-2">语法部分</p>
+                                <div id="completeGrammarStars" class="flex text-2xl justify-center">
+                                    <!-- 星星将通过JS动态生成 -->
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-gray-600 mb-2">总体评价</p>
+                            <div id="completeTotalStars" class="flex text-3xl justify-center">
+                                <!-- 星星将通过JS动态生成 -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 学习报告 -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4">今日学习报告</h3>
+                        <div class="bg-blue-50 rounded-lg p-6 text-left">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <p class="text-gray-600">学习时间：<span id="studyTime">25分钟</span></p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600">正确率：<span id="accuracyRate">90%</span></p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600">薄弱点：<span id="weakPoints">单词拼写</span></p>
+                                </div>
+                                <div>
+                                    <p class="text-gray-600">建议：<span id="suggestions">多练习单词拼写</span></p>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-gray-600">错题收集：<span id="wrongAnswersCount">2</span> 题</p>
+                                <button id="reviewWrongAnswersBtn" class="text-primary hover:underline mt-2">查看错题</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 连续打卡 -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4">连续打卡</h3>
+                        <div class="bg-green-50 rounded-lg p-6">
+                            <div class="flex justify-center items-center">
+                                <div class="text-4xl font-bold text-success mr-4" id="streakDays">7</div>
+                                <div class="text-left">
+                                    <p class="text-gray-700">天</p>
+                                    <p class="text-gray-600">距离下一个勋章还需 <span id="daysToNextMedal">23</span> 天</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row gap-4 justify-center">
+                        <button id="generateStoryBtn" class="btn-secondary flex-1">
+                            生成每日短文 <i class="fa fa-book mr-2"></i>
+                        </button>
+                        <button id="continueBtn" class="btn-primary flex-1">
+                            继续学习 <i class="fa fa-arrow-right ml-2"></i>
+                        </button>
+                        <button id="backToHomeBtn" class="btn-secondary flex-1">
+                            返回首页 <i class="fa fa-home ml-2"></i>
+                        </button>
+                    </div>
+
+                    <!-- 每日短文区域 -->
+                    <div id="storySection" class="hidden mt-8">
+                        <h3 class="text-2xl font-bold text-primary mb-4">今日短文</h3>
+                        <div class="bg-blue-50 rounded-lg p-6">
+                            <p id="generatedStory" class="text-gray-800 leading-relaxed mb-4"></p>
+                            <div class="flex justify-between">
+                                <button id="readStoryBtn" class="btn-secondary flex items-center">
+                                    <i class="fa fa-volume-up mr-2"></i> 朗读短文
+                                </button>
+                                <button id="saveStoryBtn" class="btn-secondary flex items-center">
+                                    <i class="fa fa-download mr-2"></i> 保存短文
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 勋章页面 -->
+            <section id="medalSection" class="hidden">
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-primary">我的勋章</h2>
+                        <button id="closeMedalBtn" class="btn-secondary">
+                            <i class="fa fa-times mr-2"></i> 关闭
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- 坚持达人勋章 -->
+                        <div id="medal7Days" class="bg-gray-100 rounded-lg p-6 text-center">
+                            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
+                                <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/7cc2d6c430cf49d49e70697fee4a5501~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260319103003BE72A6AEF25DACA9D1E4&rrcfp=f06b921b&x-expires=1776479435&x-signature=w3HCT5ZEBAMLy8VfW3lcYUsjHGY%3D" 
+                                     alt="7天勋章" class="w-20 h-20 object-contain opacity-30">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">坚持达人</h3>
+                            <p class="text-gray-600 mb-4">连续学习7天</p>
+                            <div class="progress-bar">
+                                <div class="progress-value bg-warning" id="medal7DaysProgress" style="width: 0%"></div>
+                            </div>
+                            <p class="text-gray-600 mt-2">已完成 <span id="medal7DaysCount">0</span>/7 天</p>
+                        </div>
+                        
+                        <!-- 月度学霸勋章 -->
+                        <div id="medal30Days" class="bg-gray-100 rounded-lg p-6 text-center">
+                            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
+                                <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/7cc2d6c430cf49d49e70697fee4a5501~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260319103003BE72A6AEF25DACA9D1E4&rrcfp=f06b921b&x-expires=1776479435&x-signature=w3HCT5ZEBAMLy8VfW3lcYUsjHGY%3D" 
+                                     alt="30天勋章" class="w-20 h-20 object-contain opacity-30">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">月度学霸</h3>
+                            <p class="text-gray-600 mb-4">连续学习30天</p>
+                            <div class="progress-bar">
+                                <div class="progress-value bg-warning" id="medal30DaysProgress" style="width: 0%"></div>
+                            </div>
+                            <p class="text-gray-600 mt-2">已完成 <span id="medal30DaysCount">0</span>/30 天</p>
+                        </div>
+                        
+                        <!-- 中考通关证书 -->
+                        <div id="medal180Days" class="bg-gray-100 rounded-lg p-6 text-center">
+                            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
+                                <img src="https://p9-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/7cc2d6c430cf49d49e70697fee4a5501~tplv-a9rns2rl98-image.image?lk3s=8e244e95&rcl=20260319103003BE72A6AEF25DACA9D1E4&rrcfp=f06b921b&x-expires=1776479435&x-signature=w3HCT5ZEBAMLy8VfW3lcYUsjHGY%3D" 
+                                     alt="180天证书" class="w-20 h-20 object-contain opacity-30">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">中考通关证书</h3>
+                            <p class="text-gray-600 mb-4">完成全部180天学习</p>
+                            <div class="progress-bar">
+                                <div class="progress-value bg-warning" id="medal180DaysProgress" style="width: 0%"></div>
+                            </div>
+                            <p class="text-gray-600 mt-2">已完成 <span id="medal180DaysCount">0</span>/180 天</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 报告页面 -->
+            <section id="reportSection" class="hidden">
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-primary">学习报告</h2>
+                        <button id="closeReportBtn" class="btn-secondary">
+                            <i class="fa fa-times mr-2"></i> 关闭
+                        </button>
+                    </div>
+                    
+                    <!-- 学习统计 -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4">学习统计</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div class="bg-blue-50 rounded-lg p-4 text-center">
+                                <div class="text-2xl font-bold text-primary mb-2" id="reportTotalDays">0</div>
+                                <p class="text-gray-600">总学习天数</p>
+                            </div>
+                            <div class="bg-green-50 rounded-lg p-4 text-center">
+                                <div class="text-2xl font-bold text-success mb-2" id="reportTotalWords">0</div>
+                                <p class="text-gray-600">已学单词</p>
+                            </div>
+                            <div class="bg-yellow-50 rounded-lg p-4 text-center">
+                                <div class="text-2xl font-bold text-warning mb-2" id="reportAvgAccuracy">0%</div>
+                                <p class="text-gray-600">平均正确率</p>
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-4 text-center">
+                                <div class="text-2xl font-bold text-accent mb-2" id="reportTotalTime">0小时</div>
+                                <p class="text-gray-600">总学习时间</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 最近7天学习情况 -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4">最近7天学习情况</h3>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <canvas id="weeklyChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- 知识点掌握情况 -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4">知识点掌握情况</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>单词</span>
+                                    <span id="vocabularyMastery">80%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value bg-primary" id="vocabularyMasteryBar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>词组</span>
+                                    <span id="phrasesMastery">70%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value bg-success" id="phrasesMasteryBar" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>语法</span>
+                                    <span id="grammarMastery">60%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-value bg-warning" id="grammarMasteryBar" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 薄弱环节 -->
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">薄弱环节</h3>
+                        <div class="bg-red-50 rounded-lg p-4">
+                            <ul class="list-disc pl-5 space-y-2" id="weakPointsList">
+                                <li>单词拼写错误较多</li>
+                                <li>一般过去时用法不熟练</li>
+                                <li>固定搭配记忆不牢固</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 设置页面 -->
+            <section id="settingsSection" class="hidden">
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-primary">设置</h2>
+                        <button id="closeSettingsBtn" class="btn-secondary">
+                            <i class="fa fa-times mr-2"></i> 关闭
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-lg font-bold mb-4">学习设置</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <span>音效</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="soundToggle" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span>自动播放单词发音</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="autoPlayToggle" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label for="studyTimeInput" class="block mb-2">每日学习时间目标（分钟）</label>
+                                    <input type="number" id="studyTimeInput" class="input-primary w-full" value="20" min="5" max="60">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-bold mb-4">数据管理</h3>
+                            <div class="space-y-4">
+                                <button id="saveDataBtn" class="btn-primary w-full">
+                                    <i class="fa fa-save mr-2"></i> 保存学习数据
+                                </button>
+                                <button id="exportDataBtn" class="btn-secondary w-full">
+                                    <i class="fa fa-download mr-2"></i> 导出学习数据
+                                </button>
+                                <button id="importDataBtn" class="btn-secondary w-full">
+                                    <i class="fa fa-upload mr-2"></i> 导入学习数据
+                                </button>
+                                <input type="file" id="importDataInput" class="hidden" accept=".json">
+                                <button id="resetDataBtn" class="btn-danger w-full">
+                                    <i class="fa fa-refresh mr-2"></i> 重置学习数据
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="mt-8 text-center text-gray-600">
+            <p>初二英语6个月闯关大冒险 &copy; 2026</p>
+            <p class="mt-2">基于河北冀教版英语教材，专为中考备考设计</p>
+        </footer>
+    </div>
+
+    <!-- 音频元素 -->
+    <audio id="wordAudio" src=""></audio>
+    <audio id="correctAudio" src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3"></audio>
+    <audio id="wrongAudio" src="https://assets.mixkit.co/active_storage/sfx/2003/2003-preview.mp3"></audio>
+    <audio id="completeAudio" src="https://assets.mixkit.co/active_storage/sfx/1993/1993-preview.mp3"></audio>
+
+    <!-- 引入数据文件 -->
+    <script src="data/vocabulary.js"></script>
+    <script src="data/phrases.js"></script>
+    <script src="data/grammar.js"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+
+    <script>
+        // 全局变量
+        let userProgress = {
+            currentDay: 1,
+            completedDays: [],
+            dayScores: {},
+            consecutiveDays: 0,
+            lastStudyDate: null,
+            medals: [],
+            wrongAnswers: {
+                vocabulary: [],
+                phrases: [],
+                grammar: []
+            },
+            settings: {
+                sound: true,
+                autoPlay: true,
+                studyTimeGoal: 20
+            },
+            totalStudyTime: 0,
+            wordMastery: {},
+            phraseMastery: {},
+            grammarMastery: {}
+        };
+        
+        // 当前学习状态
+        let currentModule = 'vocabulary';
+        let currentWordIndex = 0;
+        let currentPhraseIndex = 0;
+        let currentGrammarTestIndex = 0;
+        let currentGrammarTestLevel = 'basic';
+        let currentReadingQuestionIndex = 0;
+        let currentListeningQuestionIndex = 0;
+        let vocabularyTestAnswers = [];
+        let phrasesTestAnswers = [];
+        let grammarTestAnswers = [];
+        let readingScore = 0;
+        let listeningScore = 0;
+        let currentReading = null;
+        let currentListening = null;
+        let startTime = null;
+        let weeklyData = {
+            labels: [],
+            data: []
+        };
+        
+        // DOM元素
+        const welcomeSection = document.getElementById('welcomeSection');
+        const learningSection = document.getElementById('learningSection');
+        const completeSection = document.getElementById('completeSection');
+        const medalSection = document.getElementById('medalSection');
+        const reportSection = document.getElementById('reportSection');
+        const settingsSection = document.getElementById('settingsSection');
+        
+        const vocabularyModule = document.getElementById('vocabularyModule');
+        const phrasesModule = document.getElementById('phrasesModule');
+        const grammarModule = document.getElementById('grammarModule');
+        
+        const vocabularyBtn = document.getElementById('vocabularyBtn');
+        const phrasesBtn = document.getElementById('phrasesBtn');
+        const grammarBtn = document.getElementById('grammarBtn');
+        
+        const wordAudio = document.getElementById('wordAudio');
+        const correctAudio = document.getElementById('correctAudio');
+        const wrongAudio = document.getElementById('wrongAudio');
+        const completeAudio = document.getElementById('completeAudio');
+        
+        // 初始化函数
+        function init() {
+            // 加载用户数据
+            loadUserData();
+            
+            // 更新欢迎页面
+            updateWelcomePage();
+            
+            // 绑定事件
+            bindEvents();
+            
+            // 更新勋章页面
+            updateMedalPage();
+            
+            // 更新报告页面
+            updateReportPage();
+        }
+        
+        // 加载用户数据
+        function loadUserData() {
+            const savedData = localStorage.getItem('englishAdventureData');
+            if (savedData) {
+                userProgress = JSON.parse(savedData);
+                
+                // 检查是否是新的一天
+                checkNewDay();
+            } else {
+                // 听力训练数据
+        const listeningData = [
+            {
+                id: 1,
+                title: "Daily Conversation",
+                audioUrl: "https://example.com/audio1.mp3", // 实际使用时替换为真实音频链接
+                transcript: "A: Hello, how are you today? B: I'm fine, thank you. And you? A: I'm great! What are you doing this weekend? B: I'm going to visit my grandparents. A: That sounds nice. B: Yes, I miss them very much.",
+                questions: [
+                    {
+                        question: "How is person A feeling today?",
+                        options: ["Fine", "Great", "Sad", "Tired"],
+                        answer: 1
+                    },
+                    {
+                        question: "What is person B going to do this weekend?",
+                        options: ["Visit friends", "Go shopping", "Visit grandparents", "Stay at home"],
+                        answer: 2
+                    }
+                ]
+            },
+            {
+                id: 2,
+                title: "At the Restaurant",
+                audioUrl: "https://example.com/audio2.mp3",
+                transcript: "Waiter: Good evening! Welcome to our restaurant. A: Good evening! Table for two, please. Waiter: Follow me, please. Here's your table. A: Thank you. Can we see the menu? Waiter: Sure, here you are. Today's special is fish and chips.",
+                questions: [
+                    {
+                        question: "How many people are dining?",
+                        options: ["One", "Two", "Three", "Four"],
+                        answer: 1
+                    },
+                    {
+                        question: "What is today's special?",
+                        options: ["Fish and chips", "Chicken soup", "Pasta", "Salad"],
+                        answer: 0
+                    }
+                ]
+            }
+        ];
+                initWeeklyData();
+            }
+        }
+        
+        // 保存用户数据
+        function saveUserData() {
+            localStorage.setItem('englishAdventureData', JSON.stringify(userProgress));
+        }
+        
+        // 检查是否是新的一天
+        function checkNewDay() {
+            const today = new Date().toDateString();
+            if (userProgress.lastStudyDate !== today) {
+                if (userProgress.lastStudyDate) {
+                    const yesterday = new Date();
+                    yesterday.setDate(yesterday.getDate() - 1);
+                    
+                    if (userProgress.lastStudyDate === yesterday.toDateString()) {
+                        // 连续打卡
+                        userProgress.consecutiveDays++;
+                    } else {
+                        // 中断了连续打卡
+                        userProgress.consecutiveDays = 1;
+                    }
+                } else {
+                    userProgress.consecutiveDays = 1;
+                }
+                
+                userProgress.lastStudyDate = today;
+                saveUserData();
+                
+                // 检查是否获得新勋章
+                checkMedals();
+                
+                // 更新每周数据
+                updateWeeklyData();
+            }
+        }
+        
+        // 听力训练数据
+        const listeningData = [
+            {
+                id: 1,
+                title: "Daily Conversation",
+                audioUrl: "https://example.com/audio1.mp3", // 实际使用时替换为真实音频链接
+                transcript: "A: Hello, how are you today? B: I'm fine, thank you. And you? A: I'm great! What are you doing this weekend? B: I'm going to visit my grandparents. A: That sounds nice. B: Yes, I miss them very much.",
+                questions: [
+                    {
+                        question: "How is person A feeling today?",
+                        options: ["Fine", "Great", "Sad", "Tired"],
+                        answer: 1
+                    },
+                    {
+                        question: "What is person B going to do this weekend?",
+                        options: ["Visit friends", "Go shopping", "Visit grandparents", "Stay at home"],
+                        answer: 2
+                    }
+                ]
+            },
+            {
+                id: 2,
+                title: "At the Restaurant",
+                audioUrl: "https://example.com/audio2.mp3",
+                transcript: "Waiter: Good evening! Welcome to our restaurant. A: Good evening! Table for two, please. Waiter: Follow me, please. Here's your table. A: Thank you. Can we see the menu? Waiter: Sure, here you are. Today's special is fish and chips.",
+                questions: [
+                    {
+                        question: "How many people are dining?",
+                        options: ["One", "Two", "Three", "Four"],
+                        answer: 1
+                    },
+                    {
+                        question: "What is today's special?",
+                        options: ["Fish and chips", "Chicken soup", "Pasta", "Salad"],
+                        answer: 0
+                    }
+                ]
+            }
+        ];
+        function initWeeklyData() {
+            const today = new Date();
+            for (let i = 6; i >= 0; i--) {
+                const date = new Date();
+                date.setDate(today.getDate() - i);
+                weeklyData.labels.push(date.toLocaleDateString('zh-CN', { month: 'short', day: 'numeric' }));
+                weeklyData.data.push(0);
+            }
+            
+            userProgress.weeklyData = weeklyData;
+        }
+        
+        // 更新每周数据
+        function updateWeeklyData() {
+            if (!userProgress.weeklyData) {
+                initWeeklyData();
+                return;
+            }
+            
+            const today = new Date();
+            const todayStr = today.toLocaleDateString('zh-CN', { month: 'short', day: 'numeric' });
+            
+            // 如果今天的数据已经存在，则更新
+            const todayIndex = userProgress.weeklyData.labels.indexOf(todayStr);
+            if (todayIndex !== -1) {
+                userProgress.weeklyData.data[todayIndex] = 1;
+            } else {
+                // 添加今天的数据，移除最旧的数据
+                userProgress.weeklyData.labels.shift();
+                userProgress.weeklyData.data.shift();
+                userProgress.weeklyData.labels.push(todayStr);
+                userProgress.weeklyData.data.push(1);
+            }
+        }
+        
+        // 检查是否获得新勋章
+        function checkMedals() {
+            // 检查7天勋章
+            if (userProgress.consecutiveDays >= 7 && !userProgress.medals.includes('7days')) {
+                userProgress.medals.push('7days');
+                showNotification('恭喜获得"坚持达人"勋章！', 'success');
+            }
+            
+            // 检查30天勋章
+            if (userProgress.consecutiveDays >= 30 && !userProgress.medals.includes('30days')) {
+                userProgress.medals.push('30days');
+                showNotification('恭喜获得"月度学霸"勋章！', 'success');
+            }
+            
+            // 检查180天证书
+            if (userProgress.completedDays.length >= 180 && !userProgress.medals.includes('180days')) {
+                userProgress.medals.push('180days');
+                showNotification('恭喜获得"中考通关证书"！', 'success');
+            }
+        }
+        
+        // 更新欢迎页面
+        function updateWelcomePage() {
+            document.getElementById('daysCompleted').textContent = userProgress.completedDays.length;
+            document.getElementById('wordsLearned').textContent = userProgress.completedDays.length * 5;
+            document.getElementById('consecutiveDays').textContent = userProgress.consecutiveDays;
+            document.getElementById('currentDay').textContent = userProgress.currentDay;
+            
+            const progress = Math.round((userProgress.completedDays.length / 180) * 100);
+            document.getElementById('overallProgress').textContent = `${progress}%`;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+        }
+        
+        // 更新勋章页面
+        function updateMedalPage() {
+            // 7天勋章
+            const medal7DaysProgress = Math.min((userProgress.consecutiveDays / 7) * 100, 100);
+            document.getElementById('medal7DaysProgress').style.width = `${medal7DaysProgress}%`;
+            document.getElementById('medal7DaysCount').textContent = userProgress.consecutiveDays;
+            
+            if (userProgress.medals.includes('7days')) {
+                document.getElementById('medal7Days').classList.remove('bg-gray-100');
+                document.getElementById('medal7Days').classList.add('bg-yellow-50');
+                document.querySelector('#medal7Days img').classList.remove('opacity-30');
+            }
+            
+            // 30天勋章
+            const medal30DaysProgress = Math.min((userProgress.consecutiveDays / 30) * 100, 100);
+            document.getElementById('medal30DaysProgress').style.width = `${medal30DaysProgress}%`;
+            document.getElementById('medal30DaysCount').textContent = userProgress.consecutiveDays;
+            
+            if (userProgress.medals.includes('30days')) {
+                document.getElementById('medal30Days').classList.remove('bg-gray-100');
+                document.getElementById('medal30Days').classList.add('bg-yellow-50');
+                document.querySelector('#medal30Days img').classList.remove('opacity-30');
+            }
+            
+            // 180天证书
+            const medal180DaysProgress = Math.min((userProgress.completedDays.length / 180) * 100, 100);
+            document.getElementById('medal180DaysProgress').style.width = `${medal180DaysProgress}%`;
+            document.getElementById('medal180DaysCount').textContent = userProgress.completedDays.length;
+            
+            if (userProgress.medals.includes('180days')) {
+                document.getElementById('medal180Days').classList.remove('bg-gray-100');
+                document.getElementById('medal180Days').classList.add('bg-yellow-50');
+                document.querySelector('#medal180Days img').classList.remove('opacity-30');
+            }
+        }
+        
+        // 更新报告页面
+        function updateReportPage() {
+            document.getElementById('reportTotalDays').textContent = userProgress.completedDays.length;
+            document.getElementById('reportTotalWords').textContent = userProgress.completedDays.length * 5;
+            
+            // 计算平均正确率
+            let totalAccuracy = 0;
+            let totalDays = 0;
+            
+            for (const day in userProgress.dayScores) {
+                totalAccuracy += userProgress.dayScores[day].accuracy;
+                totalDays++;
+            }
+            
+            const avgAccuracy = totalDays > 0 ? Math.round(totalAccuracy / totalDays) : 0;
+            document.getElementById('reportAvgAccuracy').textContent = `${avgAccuracy}%`;
+            
+            // 总学习时间
+            const totalHours = Math.round(userProgress.totalStudyTime / 60);
+            document.getElementById('reportTotalTime').textContent = `${totalHours}小时`;
+            
+            // 更新图表
+            updateWeeklyChart();
+            
+            // 更新掌握情况
+            updateMasteryLevels();
+        }
+        
+        // 更新每周图表
+        function updateWeeklyChart() {
+            if (!userProgress.weeklyData) return;
+            
+            const ctx = document.getElementById('weeklyChart').getContext('2d');
+            
+            // 销毁旧图表
+            if (window.weeklyChart) {
+                window.weeklyChart.destroy();
+            }
+            
+            window.weeklyChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: userProgress.weeklyData.labels,
+                    datasets: [{
+                        label: '学习天数',
+                        data: userProgress.weeklyData.data,
+                        backgroundColor: 'rgba(67, 97, 238, 0.6)',
+                        borderColor: 'rgba(67, 97, 238, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 1,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+        
+        // 更新掌握程度
+        function updateMasteryLevels() {
+            // 单词掌握程度
+            let vocabularyCorrect = 0;
+            let vocabularyTotal = 0;
+            
+            for (const word in userProgress.wordMastery) {
+                vocabularyTotal++;
+                if (userProgress.wordMastery[word] >= 0.8) {
+                    vocabularyCorrect++;
+                }
+            }
+            
+            const vocabularyMastery = vocabularyTotal > 0 ? Math.round((vocabularyCorrect / vocabularyTotal) * 100) : 0;
+            document.getElementById('vocabularyMastery').textContent = `${vocabularyMastery}%`;
+            document.getElementById('vocabularyMasteryBar').style.width = `${vocabularyMastery}%`;
+            
+            // 词组掌握程度
+            let phrasesCorrect = 0;
+            let phrasesTotal = 0;
+            
+            for (const phrase in userProgress.phraseMastery) {
+                phrasesTotal++;
+                if (userProgress.phraseMastery[phrase] >= 0.8) {
+                    phrasesCorrect++;
+                }
+            }
+            
+            const phrasesMastery = phrasesTotal > 0 ? Math.round((phrasesCorrect / phrasesTotal) * 100) : 0;
+            document.getElementById('phrasesMastery').textContent = `${phrasesMastery}%`;
+            document.getElementById('phrasesMasteryBar').style.width = `${phrasesMastery}%`;
+            
+            // 语法掌握程度
+            let grammarCorrect = 0;
+            let grammarTotal = 0;
+            
+            for (const grammar in userProgress.grammarMastery) {
+                grammarTotal++;
+                if (userProgress.grammarMastery[grammar] >= 0.8) {
+                    grammarCorrect++;
+                }
+            }
+            
+            const grammarMastery = grammarTotal > 0 ? Math.round((grammarCorrect / grammarTotal) * 100) : 0;
+            document.getElementById('grammarMastery').textContent = `${grammarMastery}%`;
+            document.getElementById('grammarMasteryBar').style.width = `${grammarMastery}%`;
+        }
+        
+        // 绑定事件
+        function bindEvents() {
+            // 欢迎页面按钮
+            document.getElementById('startBtn').addEventListener('click', startAdventure);
+            document.getElementById('startTodayBtn').addEventListener('click', startTodayLesson);
+            
+            // 勋章按钮
+            document.getElementById('medalBtn').addEventListener('click', showMedalPage);
+            document.getElementById('closeMedalBtn').addEventListener('click', hideMedalPage);
+            
+            // 报告按钮
+            document.getElementById('reportBtn').addEventListener('click', showReportPage);
+            document.getElementById('closeReportBtn').addEventListener('click', hideReportPage);
+            
+            // 设置按钮
+            document.getElementById('settingsBtn').addEventListener('click', showSettingsPage);
+            document.getElementById('closeSettingsBtn').addEventListener('click', hideSettingsPage);
+            
+            // 模块导航按钮
+            vocabularyBtn.addEventListener('click', () => switchModule('vocabulary'));
+            phrasesBtn.addEventListener('click', () => switchModule('phrases'));
+            grammarBtn.addEventListener('click', () => switchModule('grammar'));
+            readingBtn.addEventListener('click', () => switchModule('reading'));
+            listeningBtn.addEventListener('click', () => switchModule('listening'));
+            
+            // 单词学习按钮
+            document.getElementById('playAudioBtn').addEventListener('click', playWordAudio);
+            document.getElementById('prevWordBtn').addEventListener('click', showPrevWord);
+            document.getElementById('nextWordBtn').addEventListener('click', showNextWord);
+            
+            // 单词测试按钮
+            document.getElementById('testPlayAudioBtn').addEventListener('click', playTestWordAudio);
+            document.getElementById('prevTestBtn').addEventListener('click', showPrevTestWord);
+            document.getElementById('nextTestBtn').addEventListener('click', showNextTestWord);
+            
+            // 词组学习按钮
+            document.getElementById('prevPhraseBtn').addEventListener('click', showPrevPhrase);
+            document.getElementById('nextPhraseBtn').addEventListener('click', showNextPhrase);
+            
+            // 词组测试按钮
+            document.getElementById('prevPhraseTestBtn').addEventListener('click', showPrevPhraseTest);
+            document.getElementById('nextPhraseTestBtn').addEventListener('click', showNextPhraseTest);
+            
+            // 语法学习按钮
+            document.getElementById('startGrammarTestBtn').addEventListener('click', startGrammarTest);
+            
+            // 语法测试按钮
+            document.getElementById('prevGrammarTestBtn').addEventListener('click', showPrevGrammarTest);
+            document.getElementById('nextGrammarTestBtn').addEventListener('click', showNextGrammarTest);
+            
+            // 完成按钮
+            document.getElementById('startPhrasesBtn').addEventListener('click', startPhrasesModule);
+            document.getElementById('startGrammarBtn').addEventListener('click', startGrammarModule);
+            document.getElementById('startReadingBtn').addEventListener('click', startReadingModule);
+            document.getElementById('startListeningBtn').addEventListener('click', startListeningModule);
+            document.getElementById('completeLevelBtn').addEventListener('click', completeLevel);
+            
+            // 阅读模块按钮
+            document.getElementById('startReadingTestBtn').addEventListener('click', startReadingTest);
+            document.getElementById('prevReadingTestBtn').addEventListener('click', showPrevReadingTest);
+            document.getElementById('nextReadingTestBtn').addEventListener('click', showNextReadingTest);
+            
+            // 听力模块按钮
+            document.getElementById('playListeningBtn').addEventListener('click', playListeningAudio);
+            document.getElementById('showTranscriptBtn').addEventListener('click', toggleTranscript);
+            document.getElementById('startListeningTestBtn').addEventListener('click', startListeningTest);
+            document.getElementById('playTestAudioBtn').addEventListener('click', playTestAudio);
+            document.getElementById('prevListeningTestBtn').addEventListener('click', showPrevListeningTest);
+            document.getElementById('nextListeningTestBtn').addEventListener('click', showNextListeningTest);
+            
+            // 完成页面按钮
+            document.getElementById('continueBtn').addEventListener('click', startNextDay);
+            document.getElementById('backToHomeBtn').addEventListener('click', backToHome);
+
+            // 每日短文功能
+            document.getElementById('generateStoryBtn').addEventListener('click', generateDailyStory);
+            document.getElementById('readStoryBtn').addEventListener('click', readStoryAloud);
+            document.getElementById('saveStoryBtn').addEventListener('click', saveStory);
+            document.getElementById('reviewWrongAnswersBtn').addEventListener('click', reviewWrongAnswers);
+            
+            // 设置页面按钮
+            document.getElementById('soundToggle').addEventListener('change', toggleSound);
+            document.getElementById('autoPlayToggle').addEventListener('change', toggleAutoPlay);
+            document.getElementById('studyTimeInput').addEventListener('change', changeStudyTimeGoal);
+            document.getElementById('saveDataBtn').addEventListener('click', saveData);
+            document.getElementById('exportDataBtn').addEventListener('click', exportData);
+            document.getElementById('importDataBtn').addEventListener('click', () => document.getElementById('importDataInput').click());
+            document.getElementById('importDataInput').addEventListener('change', importData);
+            document.getElementById('resetDataBtn').addEventListener('click', resetData);
+        }
+        
+        // 开始冒险
+        function startAdventure() {
+            welcomeSection.classList.add('hidden');
+            learningSection.classList.remove('hidden');
+            startTodayLesson();
+        }
+        
+        // 开始今日课程
+        function startTodayLesson() {
+            // 记录开始时间
+            startTime = new Date();
+            
+            // 更新关卡信息
+            document.getElementById('levelDay').textContent = userProgress.currentDay;
+            
+            // 重置学习状态
+            currentWordIndex = 0;
+            currentPhraseIndex = 0;
+            currentGrammarTestIndex = 0;
+            currentGrammarTestLevel = 'basic';
+            vocabularyTestAnswers = [];
+            phrasesTestAnswers = [];
+            grammarTestAnswers = [];
+            
+            // 显示单词模块
+            switchModule('vocabulary');
+            
+            // 加载第一个单词
+            loadWord(currentWordIndex);
+        }
+        
+        // 切换模块
+        function switchModule(module) {
+            currentModule = module;
+            
+            // 更新按钮状态
+            vocabularyBtn.className = module === 'vocabulary' ? 'btn-primary flex-1' : 'btn-secondary flex-1';
+            phrasesBtn.className = module === 'phrases' ? 'btn-primary flex-1' : 'btn-secondary flex-1';
+            grammarBtn.className = module === 'grammar' ? 'btn-primary flex-1' : 'btn-secondary flex-1';
+            readingBtn.className = module === 'reading' ? 'btn-primary flex-1' : 'btn-secondary flex-1';
+            listeningBtn.className = module === 'listening' ? 'btn-primary flex-1' : 'btn-secondary flex-1';
+            
+            // 更新模块显示
+            vocabularyModule.classList.add('hidden');
+            phrasesModule.classList.add('hidden');
+            grammarModule.classList.add('hidden');
+            readingModule.classList.add('hidden');
+            listeningModule.classList.add('hidden');
+            
+            if (module === 'vocabulary') {
+                vocabularyModule.classList.remove('hidden');
+            } else if (module === 'phrases') {
+                phrasesModule.classList.remove('hidden');
+            } else if (module === 'grammar') {
+                grammarModule.classList.remove('hidden');
+            } else if (module === 'reading') {
+                readingModule.classList.remove('hidden');
+            } else if (module === 'listening') {
+                listeningModule.classList.remove('hidden');
+            }
+            
+            // 更新进度条
+            updateLevelProgress();
+        }
+        
+        // 更新关卡进度
+        function updateLevelProgress() {
+            let progress = 0;
+            
+            if (userProgress.completedDays.includes(userProgress.currentDay)) {
+                progress = 100;
+            } else if (currentModule === 'listening') {
+                progress = 100;
+            } else if (currentModule === 'reading') {
+                progress = 80;
+            } else if (currentModule === 'grammar') {
+                progress = 60;
+            } else if (currentModule === 'phrases') {
+                progress = 40;
+            } else if (currentModule === 'vocabulary') {
+                progress = 20;
+            }
+            
+            document.getElementById('levelProgressBar').style.width = `${progress}%`;
+        }
+        
+        // 加载单词
+        function loadWord(index) {
+            const dayVocabulary = vocabularyData[`day${userProgress.currentDay}`];
+            if (!dayVocabulary || index >= dayVocabulary.length) return;
+            
+            const word = dayVocabulary[index];
+            
+            document.getElementById('currentWord').textContent = word.word;
+            document.getElementById('wordPhonetic').textContent = word.phonetic;
+            document.getElementById('wordDefinition').textContent = word.definition;
+            document.getElementById('wordExample').textContent = word.example;
+            document.getElementById('wordTranslation').textContent = word.translation;
+            
+            wordAudio.src = word.audioUrl;
+            
+            // 更新进度
+            document.getElementById('wordProgress').textContent = `${index + 1}/${dayVocabulary.length}`;
+            
+            // 更新按钮状态
+            document.getElementById('prevWordBtn').disabled = index === 0;
+            document.getElementById('nextWordBtn').textContent = index === dayVocabulary.length - 1 ? '开始测试' : '下一个';
+            document.getElementById('nextWordBtn').innerHTML = index === dayVocabulary.length - 1 ? '开始测试 <i class="fa fa-arrow-right ml-2"></i>' : '下一个 <i class="fa fa-arrow-right ml-2"></i>';
+            
+            // 自动播放音频
+            if (userProgress.settings.autoPlay) {
+                setTimeout(() => playWordAudio(), 500);
+            }
+        }
+        
+        // 播放单词音频
+        function playWordAudio() {
+            if (userProgress.settings.sound) {
+                wordAudio.play();
+            }
+        }
+        
+        // 显示上一个单词
+        function showPrevWord() {
+            if (currentWordIndex > 0) {
+                currentWordIndex--;
+                loadWord(currentWordIndex);
+            }
+        }
+        
+        // 显示下一个单词
+        function showNextWord() {
+            const dayVocabulary = vocabularyData[`day${userProgress.currentDay}`];
+            if (!dayVocabulary) return;
+            
+            if (currentWordIndex < dayVocabulary.length - 1) {
+                currentWordIndex++;
+                loadWord(currentWordIndex);
+            } else {
+                // 开始测试
+                startVocabularyTest();
+            }
+        }
+        
+        // 开始单词测试
+        function startVocabularyTest() {
+            document.getElementById('vocabularyLearning').classList.add('hidden');
+            document.getElementById('vocabularyTest').classList.remove('hidden');
+            
+            currentWordIndex = 0;
+            vocabularyTestAnswers = [];
+            
+            loadTestWord(currentWordIndex);
+        }
+        
+        // 加载测试单词
+        function loadTestWord(index) {
+            const dayVocabulary = vocabularyData[`day${userProgress.currentDay}`];
+            if (!dayVocabulary || index >= dayVocabulary.length) return;
+            
+            const word = dayVocabulary[index];
+            
+            document.getElementById('testWord').textContent = word.word;
+            document.getElementById('testPhonetic').textContent = word.phonetic;
+            document.getElementById('testDefinition').textContent = word.definition;
+            
+            wordAudio.src = word.audioUrl;
+            
+            // 更新进度
+            document.getElementById('testProgress').textContent = `${index + 1}/${dayVocabulary.length}`;
+            
+            // 更新按钮状态
+            document.getElementById('prevTestBtn').disabled = index === 0;
+            document.getElementById('nextTestBtn').textContent = index === dayVocabulary.length - 1 ? '完成' : '下一题';
+            document.getElementById('nextTestBtn').innerHTML = index === dayVocabulary.length - 1 ? '完成 <i class="fa fa-arrow-right ml-2"></i>' : '下一题 <i class="fa fa-arrow-right ml-2"></i>';
+            
+            // 隐藏反馈
+            document.getElementById('testFeedback').classList.add('hidden');
+            
+            // 随机选择测试类型
+            const testType = Math.random() > 0.5 ? 'translation' : 'spelling';
+            
+            if (testType === 'translation') {
+                document.getElementById('testTypeTranslation').classList.remove('hidden');
+                document.getElementById('testTypeSpelling').classList.add('hidden');
+                
+                // 生成选项
+                const options = [word.definition];
+                const otherWords = getRandomWords(dayVocabulary, word.word, 2);
+                
+                for (const otherWord of otherWords) {
+                    options.push(otherWord.definition);
+                }
+                
+                // 随机排序选项
+                shuffleArray(options);
+                
+                // 生成选项HTML
+                const optionsHTML = options.map(option => `
+                    <div class="option bg-white p-3 rounded-lg border border-gray-300 cursor-pointer hover:bg-blue-50 transition-colors" data-option="${option}">
+                        ${option}
+                    </div>
+                `).join('');
+                
+                document.getElementById('translationOptions').innerHTML = optionsHTML;
+                
+                // 绑定选项点击事件
+                document.querySelectorAll('#translationOptions .option').forEach(option => {
+                    option.addEventListener('click', () => selectTranslationOption(option, word.definition));
+                });
+            } else {
+                document.getElementById('testTypeTranslation').classList.add('hidden');
+                document.getElementById('testTypeSpelling').classList.remove('hidden');
+                
+                // 清空输入框
+                document.getElementById('spellingInput').value = '';
+                
+                // 绑定输入事件
+                document.getElementById('spellingInput').addEventListener('input', function() {
+                    const input = this.value.trim().toLowerCase();
+                    const correctAnswer = word.word.toLowerCase();
+                    
+                    if (input === correctAnswer) {
+                        showTestFeedback(true, '拼写正确！');
+                        vocabularyTestAnswers.push({
+                            word: word.word,
+                            correct: true,
+                            userAnswer: input
+                        });
+                        
+                        // 更新单词掌握程度
+                        updateWordMastery(word.word, true);
+                        
+                        // 播放正确音效
+                        if (userProgress.settings.sound) {
+                            correctAudio.play();
+                        }
+                        
+                        // 禁用输入框
+                        this.disabled = true;
+                    }
+                });
+            }
+        }
+        
+        // 获取随机单词
+        function getRandomWords(wordList, excludeWord, count) {
+            const filteredWords = wordList.filter(word => word.word !== excludeWord);
+            shuffleArray(filteredWords);
+            return filteredWords.slice(0, count);
+        }
+        
+        // 选择翻译选项
+        function selectTranslationOption(option, correctAnswer) {
+            const selectedOption = option.getAttribute('data-option');
+            const isCorrect = selectedOption === correctAnswer;
+            
+            // 禁用所有选项
+            document.querySelectorAll('#translationOptions .option').forEach(opt => {
+                opt.classList.remove('cursor-pointer', 'hover:bg-blue-50');
+                opt.classList.add('cursor-default');
+                
+                if (opt.getAttribute('data-option') === correctAnswer) {
+                    opt.classList.add('bg-green-100', 'border-green-500');
+                } else if (opt === option && !isCorrect) {
+                    opt.classList.add('bg-red-100', 'border-red-500');
+                }
+            });
+            
+            // 显示反馈
+            showTestFeedback(isCorrect, isCorrect ? '回答正确！' : `回答错误！正确答案是：${correctAnswer}`);
+            
+            // 记录答案
+            vocabularyTestAnswers.push({
+                word: document.getElementById('testWord').textContent,
+                correct: isCorrect,
+                userAnswer: selectedOption
+            });
+            
+            // 更新单词掌握程度
+            updateWordMastery(document.getElementById('testWord').textContent, isCorrect);
+            
+            // 播放音效
+            if (userProgress.settings.sound) {
+                if (isCorrect) {
+                    correctAudio.play();
+                } else {
+                    wrongAudio.play();
+                }
+            }
+        }
+        
+        // 播放测试单词音频
+        function playTestWordAudio() {
+            if (userProgress.settings.sound) {
+                wordAudio.play();
+            }
+        }
+        
+        // 显示测试反馈
+        function showTestFeedback(isCorrect, message) {
+            const feedbackElement = document.getElementById('testFeedback');
+            feedbackElement.textContent = message;
+            feedbackElement.className = `mt-4 p-3 rounded-lg ${isCorrect ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+            feedbackElement.classList.remove('hidden');
+        }
+        
+        // 显示上一个测试单词
+        function showPrevTestWord() {
+            if (currentWordIndex > 0) {
+                currentWordIndex--;
+                loadTestWord(currentWordIndex);
+            }
+        }
+        
+        // 显示下一个测试单词
+        function showNextTestWord() {
+            const dayVocabulary = vocabularyData[`day${userProgress.currentDay}`];
+            if (!dayVocabulary) return;
+            
+            if (currentWordIndex < dayVocabulary.length - 1) {
+                currentWordIndex++;
+                loadTestWord(currentWordIndex);
+            } else {
+                // 完成测试
+                completeVocabularyTest();
+            }
+        }
+        
+        // 完成单词测试
+        function completeVocabularyTest() {
+            // 计算得分
+            const correctCount = vocabularyTestAnswers.filter(answer => answer.correct).length;
+            const totalCount = vocabularyTestAnswers.length;
+            const score = Math.round((correctCount / totalCount) * 100);
+            
+            // 计算星星数
+            let stars = 0;
+            if (score >= 90) {
+                stars = 3;
+            } else if (score >= 70) {
+                stars = 2;
+            } else if (score >= 50) {
+                stars = 1;
+            }
+            
+            // 显示完成页面
+            document.getElementById('vocabularyTest').classList.add('hidden');
+            document.getElementById('vocabularyComplete').classList.remove('hidden');
+            
+            // 更新星星
+            updateStars('vocabularyStars', stars);
+            
+            // 记录错题
+            const wrongWords = vocabularyTestAnswers.filter(answer => !answer.correct);
+            if (wrongWords.length > 0) {
+                userProgress.wrongAnswers.vocabulary.push(...wrongWords);
+            }
+            
+            // 启用词组按钮
+            phrasesBtn.disabled = false;
+            
+            // 更新关卡进度
+            updateLevelProgress();
+        }
+        
+        // 更新星星显示
+        function updateStars(elementId, count) {
+            const starsElement = document.getElementById(elementId);
+            starsElement.innerHTML = '';
+            
+            for (let i = 0; i < 3; i++) {
+                const star = document.createElement('i');
+                star.className = i < count ? 'fa fa-star star-filled' : 'fa fa-star star-empty';
+                starsElement.appendChild(star);
+            }
+        }
+        
+        // 更新单词掌握程度
+        function updateWordMastery(word, isCorrect) {
+            if (!userProgress.wordMastery[word]) {
+                userProgress.wordMastery[word] = 0;
+            }
+            
+            if (isCorrect) {
+                userProgress.wordMastery[word] = Math.min(userProgress.wordMastery[word] + 0.2, 1);
+            } else {
+                userProgress.wordMastery[word] = Math.max(userProgress.wordMastery[word] - 0.1, 0);
+            }
+        }
+        
+        // 开始词组模块
+        function startPhrasesModule() {
+            switchModule('phrases');
+            
+            // 加载第一个词组
+            currentPhraseIndex = 0;
+            loadPhrase(currentPhraseIndex);
+        }
+        
+        // 加载词组
+        function loadPhrase(index) {
+            const dayPhrases = phrasesData[`day${userProgress.currentDay}`];
+            if (!dayPhrases || !dayPhrases.phrases || index >= dayPhrases.phrases.length) return;
+            
+            const phrase = dayPhrases.phrases[index];
+            
+            document.getElementById('currentPhrase').textContent = phrase.phrase;
+            document.getElementById('phraseTranslation').textContent = phrase.translation;
+            document.getElementById('phraseExample').textContent = phrase.example;
+            
+            // 更新进度
+            document.getElementById('phraseProgress').textContent = `${index + 1}/${dayPhrases.phrases.length}`;
+            
+            // 更新按钮状态
+            document.getElementById('prevPhraseBtn').disabled = index === 0;
+            document.getElementById('nextPhraseBtn').textContent = index === dayPhrases.phrases.length - 1 ? '开始测试' : '下一个';
+            document.getElementById('nextPhraseBtn').innerHTML = index === dayPhrases.phrases.length - 1 ? '开始测试 <i class="fa fa-arrow-right ml-2"></i>' : '下一个 <i class="fa fa-arrow-right ml-2"></i>';
+        }
+        
+        // 显示上一个词组
+        function showPrevPhrase() {
+            const dayPhrases = phrasesData[`day${userProgress.currentDay}`];
+            if (!dayPhrases || !dayPhrases.phrases) return;
+            
+            if (currentPhraseIndex > 0) {
+                currentPhraseIndex--;
+                loadPhrase(currentPhraseIndex);
+            }
+        }
+        
+        // 显示下一个词组
+        function showNextPhrase() {
+            const dayPhrases = phrasesData[`day${userProgress.currentDay}`];
+            if (!dayPhrases || !dayPhrases.phrases) return;
+            
+            if (currentPhraseIndex < dayPhrases.phrases.length - 1) {
+                currentPhraseIndex++;
+                loadPhrase(currentPhraseIndex);
+            } else {
+                // 开始测试
+                startPhrasesTest();
+            }
+        }
+        
+        // 开始词组测试
+        function startPhrasesTest() {
+            document.getElementById('phrasesLearning').classList.add('hidden');
+            document.getElementById('phrasesTest').classList.remove('hidden');
+            
+            currentPhraseIndex = 0;
+            phrasesTestAnswers = [];
+            
+            loadPhraseTest(currentPhraseIndex);
+        }
+        
+        // 加载词组测试
+        function loadPhraseTest(index) {
+            const dayPhrases = phrasesData[`day${userProgress.currentDay}`];
+            if (!dayPhrases || !dayPhrases.exercises || index >= dayPhrases.exercises.length) return;
+            
+            const exercise = dayPhrases.exercises[index];
+            
+            // 更新进度
+            document.getElementById('phraseTestProgress').textContent = `${index + 1}/${dayPhrases.exercises.length}`;
+            
+            // 更新按钮状态
+            document.getElementById('prevPhraseTestBtn').disabled = index === 0;
+            document.getElementById('nextPhraseTestBtn').textContent = index === dayPhrases.exercises.length - 1 ? '完成' : '下一题';
+            document.getElementById('nextPhraseTestBtn').innerHTML = index === dayPhrases.exercises.length - 1 ? '完成 <i class="fa fa-arrow-right ml-2"></i>' : '下一题 <i class="fa fa-arrow-right ml-2"></i>';
+            
+            // 隐藏反馈
+            document.getElementById('phraseTestFeedback').classList.add('hidden');
+            
+            // 生成问题
+            let questionHTML = '';
+            
+            if (exercise.type === 'translation') {
+                const isEnglishToChinese = Math.random() > 0.5;
+                
+                if (isEnglishToChinese) {
+                    questionHTML = `<p class="mb-4">请将下列英文词组翻译成中文：</p><p class="text-xl font-bold mb-4">${exercise.question}</p>`;
+                } else {
+                    questionHTML = `<p class="mb-4">请将下列中文翻译成英文词组：</p><p class="text-xl font-bold mb-4">${exercise.question}</p>`;
+                }
+            } else if (exercise.type === 'completion') {
+                questionHTML = `<p class="mb-4">请选择正确的单词或词组完成句子：</p><p class="text-xl font-bold mb-4">${exercise.question}</p>`;
+            } else if (exercise.type === 'choice') {
+                questionHTML = `<p class="mb-4">请选择正确的答案：</p><p class="text-xl font-bold mb-4">${exercise.question}</p>`;
+            }
+            
+            document.getElementById('phraseTestQuestion').innerHTML = questionHTML;
+            
+            // 生成选项
+            const optionsHTML = exercise.options.map(option => `
+                <div class="option bg-white p-3 rounded-lg border border-gray-300 cursor-pointer hover:bg-green-50 transition-colors" data-option="${option}">
+                    ${option}
+                </div>
+            `).join('');
+            
+            document.getElementById('phraseTestOptions').innerHTML = optionsHTML;
+            
+            // 绑定选项点击事件
+            document.querySelectorAll('#phraseTestOptions .option').forEach(option => {
+                option.addEventListener('click', () => selectPhraseOption(option, exercise.answer));
+            });
+        }
+        
+        // 选择词组选项
+        function selectPhraseOption(option, correctAnswer) {
+            const selectedOption = option.getAttribute('data-option');
+            const isCorrect = selectedOption === correctAnswer;
+            
+            // 禁用所有选项
+            document.querySelectorAll('#phraseTestOptions .option').forEach(opt => {
+                opt.classList.remove('cursor-pointer', 'hover:bg-green-50');
+                opt.classList.add('cursor-default');
+                
+                if (opt.getAttribute('data-option') === correctAnswer) {
+                    opt.classList.add('bg-green-100', 'border-green-500');
+                } else if (opt === option && !isCorrect) {
+                    opt.classList.add('bg-red-100', 'border-red-500');
+                }
+            });
+            
+            // 显示反馈
+            showPhraseTestFeedback(isCorrect, isCorrect ? '回答正确！' : `回答错误！正确答案是：${correctAnswer}`);
+            
+            // 记录答案
+            phrasesTestAnswers.push({
+                question: document.getElementById('phraseTestQuestion').textContent,
+                correct: isCorrect,
+                userAnswer: selectedOption,
+                correctAnswer: correctAnswer
+            });
+            
+            // 更新词组掌握程度
+            updatePhraseMastery(selectedOption, isCorrect);
+            
+            // 播放音效
+            if (userProgress.settings.sound) {
+                if (isCorrect) {
+                    correctAudio.play();
+                } else {
+                    wrongAudio.play();
+                }
+            }
+        }
+        
+        // 显示词组测试反馈
+        function showPhraseTestFeedback(isCorrect, message) {
+            const feedbackElement = document.getElementById('phraseTestFeedback');
+            feedbackElement.textContent = message;
+            feedbackElement.className = `mt-4 p-3 rounded-lg ${isCorrect ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+            feedbackElement.classList.remove('hidden');
+        }
+        
+        // 更新词组掌握程度
+        function updatePhraseMastery(phrase, isCorrect) {
+            if (!userProgress.phraseMastery[phrase]) {
+                userProgress.phraseMastery[phrase] = 0;
+            }
+            
+            if (isCorrect) {
+                userProgress.phraseMastery[phrase] = Math.min(userProgress.phraseMastery[phrase] + 0.2, 1);
+            } else {
+                userProgress.phraseMastery[phrase] = Math.max(userProgress.phraseMastery[phrase] - 0.1, 0);
+            }
+        }
+        
+        // 显示上一个词组测试
+        function showPrevPhraseTest() {
+            const dayPhrases = phrasesData[`day${userProgress.currentDay}`];
+            if (!dayPhrases || !dayPhrases.exercises) return;
+            
+            if (currentPhraseIndex > 0) {
+                currentPhraseIndex--;
+                loadPhraseTest(currentPhraseIndex);
+            }
+        }
+        
+        // 显示下一个词组测试
+        function showNextPhraseTest() {
+            const dayPhrases = phrasesData[`day${userProgress.currentDay}`];
+            if (!dayPhrases || !dayPhrases.exercises) return;
+            
+            if (currentPhraseIndex < dayPhrases.exercises.length - 1) {
+                currentPhraseIndex++;
+                loadPhraseTest(currentPhraseIndex);
+            } else {
+                // 完成测试
+                completePhrasesTest();
+            }
+        }
+        
+        // 完成词组测试
+        function completePhrasesTest() {
+            // 计算得分
+            const correctCount = phrasesTestAnswers.filter(answer => answer.correct).length;
+            const totalCount = phrasesTestAnswers.length;
+            const score = Math.round((correctCount / totalCount) * 100);
+            
+            // 计算星星数
+            let stars = 0;
+            if (score >= 90) {
+                stars = 3;
+            } else if (score >= 70) {
+                stars = 2;
+            } else if (score >= 50) {
+                stars = 1;
+            }
+            
+            // 显示完成页面
+            document.getElementById('phrasesTest').classList.add('hidden');
+            document.getElementById('phrasesComplete').classList.remove('hidden');
+            
+            // 更新星星
+            updateStars('phrasesStars', stars);
+            
+            // 记录错题
+            const wrongPhrases = phrasesTestAnswers.filter(answer => !answer.correct);
+            if (wrongPhrases.length > 0) {
+                userProgress.wrongAnswers.phrases.push(...wrongPhrases);
+            }
+            
+            // 启用语法按钮
+            grammarBtn.disabled = false;
+            
+            // 更新关卡进度
+            updateLevelProgress();
+        }
+        
+        // 开始语法模块
+        function startGrammarModule() {
+            switchModule('grammar');
+            
+            // 加载语法知识点
+            loadGrammarTopic();
+        }
+        
+        // 加载语法知识点
+        function loadGrammarTopic() {
+            const dayGrammar = grammarData[`day${userProgress.currentDay}`];
+            if (!dayGrammar) return;
+            
+            document.getElementById('grammarTopic').textContent = dayGrammar.topic;
+            document.getElementById('grammarExplanation').textContent = dayGrammar.explanation;
+            
+            // 生成例句
+            const examplesHTML = dayGrammar.examples.map(example => `
+                <li>${example.english} <span class="text-gray-600">${example.chinese}</span></li>
+            `).join('');
+            
+            document.getElementById('grammarExamples').innerHTML = examplesHTML;
+        }
+        
+        // 开始语法测试
+        function startGrammarTest() {
+            document.getElementById('grammarLearning').classList.add('hidden');
+            document.getElementById('grammarTest').classList.remove('hidden');
+            
+            currentGrammarTestIndex = 0;
+            currentGrammarTestLevel = 'basic';
+            grammarTestAnswers = [];
+            
+            loadGrammarTest(currentGrammarTestIndex, currentGrammarTestLevel);
+        }
+        
+        // 加载语法测试
+        function loadGrammarTest(index, level) {
+            const dayGrammar = grammarData[`day${userProgress.currentDay}`];
+            if (!dayGrammar || !dayGrammar.exercises || !dayGrammar.exercises[level]) return;
+            
+            const exercises = dayGrammar.exercises[level];
+            if (index >= exercises.length) return;
+            
+            const exercise = exercises[index];
+            
+            // 更新测试级别
+            document.getElementById('grammarTestLevel').textContent = level === 'basic' ? '基础题' : level === 'advanced' ? '提升题' : '中考真题';
+            
+            // 更新按钮状态
+            document.getElementById('prevGrammarTestBtn').disabled = index === 0;
+            
+            if (level === 'basic' && index === exercises.length - 1) {
+                document.getElementById('nextGrammarTestBtn').textContent = '提升题';
+                document.getElementById('nextGrammarTestBtn').innerHTML = '提升题 <i class="fa fa-arrow-right ml-2"></i>';
+            } else if (level === 'advanced' && index === exercises.length - 1) {
+                document.getElementById('nextGrammarTestBtn').textContent = '中考真题';
+                document.getElementById('nextGrammarTestBtn').innerHTML = '中考真题 <i class="fa fa-arrow-right ml-2"></i>';
+            } else if (level === 'exam' && index === exercises.length - 1) {
+                document.getElementById('nextGrammarTestBtn').textContent = '完成';
+                document.getElementById('nextGrammarTestBtn').innerHTML = '完成 <i class="fa fa-arrow-right ml-2"></i>';
+            } else {
+                document.getElementById('nextGrammarTestBtn').textContent = '下一题';
+                document.getElementById('nextGrammarTestBtn').innerHTML = '下一题 <i class="fa fa-arrow-right ml-2"></i>';
+            }
+            
+            // 隐藏反馈
+            document.getElementById('grammarTestFeedback').classList.add('hidden');
+            
+            // 生成问题
+            document.getElementById('grammarTestQuestion').innerHTML = `<p class="text-xl font-bold mb-4">${exercise.question}</p>`;
+            
+            // 生成选项
+            const optionsHTML = exercise.options.map(option => `
+                <div class="option bg-white p-3 rounded-lg border border-gray-300 cursor-pointer hover:bg-purple-50 transition-colors" data-option="${option}">
+                    ${option}
+                </div>
+            `).join('');
+            
+            document.getElementById('grammarTestOptions').innerHTML = optionsHTML;
+            
+            // 绑定选项点击事件
+            document.querySelectorAll('#grammarTestOptions .option').forEach(option => {
+                option.addEventListener('click', () => selectGrammarOption(option, exercise.answer));
+            });
+        }
+        
+        // 选择语法选项
+        function selectGrammarOption(option, correctAnswer) {
+            const selectedOption = option.getAttribute('data-option');
+            const isCorrect = selectedOption === correctAnswer;
+            
+            // 禁用所有选项
+            document.querySelectorAll('#grammarTestOptions .option').forEach(opt => {
+                opt.classList.remove('cursor-pointer', 'hover:bg-purple-50');
+                opt.classList.add('cursor-default');
+                
+                if (opt.getAttribute('data-option') === correctAnswer) {
+                    opt.classList.add('bg-green-100', 'border-green-500');
+                } else if (opt === option && !isCorrect) {
+                    opt.classList.add('bg-red-100', 'border-red-500');
+                }
+            });
+            
+            // 显示反馈
+            showGrammarTestFeedback(isCorrect, isCorrect ? '回答正确！' : `回答错误！正确答案是：${correctAnswer}`);
+            
+            // 记录答案
+            grammarTestAnswers.push({
+                question: document.getElementById('grammarTestQuestion').textContent,
+                correct: isCorrect,
+                userAnswer: selectedOption,
+                correctAnswer: correctAnswer,
+                level: currentGrammarTestLevel
+            });
+            
+            // 更新语法掌握程度
+            updateGrammarMastery(currentGrammarTestLevel, isCorrect);
+            
+            // 播放音效
+            if (userProgress.settings.sound) {
+                if (isCorrect) {
+                    correctAudio.play();
+                } else {
+                    wrongAudio.play();
+                }
+            }
+        }
+        
+        // 显示语法测试反馈
+        function showGrammarTestFeedback(isCorrect, message) {
+            const feedbackElement = document.getElementById('grammarTestFeedback');
+            feedbackElement.textContent = message;
+            feedbackElement.className = `mt-4 p-3 rounded-lg ${isCorrect ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+            feedbackElement.classList.remove('hidden');
+        }
+        
+        // 更新语法掌握程度
+        function updateGrammarMastery(level, isCorrect) {
+            if (!userProgress.grammarMastery[level]) {
+                userProgress.grammarMastery[level] = 0;
+            }
+            
+            if (isCorrect) {
+                userProgress.grammarMastery[level] = Math.min(userProgress.grammarMastery[level] + 0.2, 1);
+            } else {
+                userProgress.grammarMastery[level] = Math.max(userProgress.grammarMastery[level] - 0.1, 0);
+            }
+        }
+        
+        // 显示上一个语法测试
+        function showPrevGrammarTest() {
+            const dayGrammar = grammarData[`day${userProgress.currentDay}`];
+            if (!dayGrammar || !dayGrammar.exercises || !dayGrammar.exercises[currentGrammarTestLevel]) return;
+            
+            const exercises = dayGrammar.exercises[currentGrammarTestLevel];
+            
+            if (currentGrammarTestIndex > 0) {
+                currentGrammarTestIndex--;
+                loadGrammarTest(currentGrammarTestIndex, currentGrammarTestLevel);
+            }
+        }
+        
+        // 显示下一个语法测试
+        function showNextGrammarTest() {
+            const dayGrammar = grammarData[`day${userProgress.currentDay}`];
+            if (!dayGrammar || !dayGrammar.exercises) return;
+            
+            const exercises = dayGrammar.exercises[currentGrammarTestLevel];
+            
+            if (currentGrammarTestIndex < exercises.length - 1) {
+                currentGrammarTestIndex++;
+                loadGrammarTest(currentGrammarTestIndex, currentGrammarTestLevel);
+            } else {
+                // 切换到下一个级别或完成测试
+                if (currentGrammarTestLevel === 'basic') {
+                    currentGrammarTestLevel = 'advanced';
+                    currentGrammarTestIndex = 0;
+                    loadGrammarTest(currentGrammarTestIndex, currentGrammarTestLevel);
+                } else if (currentGrammarTestLevel === 'advanced') {
+                    currentGrammarTestLevel = 'exam';
+                    currentGrammarTestIndex = 0;
+                    loadGrammarTest(currentGrammarTestIndex, currentGrammarTestLevel);
+                } else {
+                    // 完成测试
+                    completeGrammarTest();
+                }
+            }
+        }
+        
+        // 完成语法测试
+        function completeGrammarTest() {
+            // 计算得分
+            const correctCount = grammarTestAnswers.filter(answer => answer.correct).length;
+            const totalCount = grammarTestAnswers.length;
+            const score = Math.round((correctCount / totalCount) * 100);
+            
+            // 计算星星数
+            let stars = 0;
+            if (score >= 90) {
+                stars = 3;
+            } else if (score >= 70) {
+                stars = 2;
+            } else if (score >= 50) {
+                stars = 1;
+            }
+            
+            // 显示完成页面
+            document.getElementById('grammarTest').classList.add('hidden');
+            document.getElementById('grammarComplete').classList.remove('hidden');
+            
+            // 更新星星
+            updateStars('grammarStars', stars);
+            
+            // 记录错题
+            const wrongGrammar = grammarTestAnswers.filter(answer => !answer.correct);
+            if (wrongGrammar.length > 0) {
+                userProgress.wrongAnswers.grammar.push(...wrongGrammar);
+            }
+        }
+        
+        // 完成关卡
+        function completeLevel() {
+            // 计算总得分
+            const vocabularyCorrect = vocabularyTestAnswers.filter(answer => answer.correct).length;
+            const vocabularyTotal = vocabularyTestAnswers.length;
+            const vocabularyScore = vocabularyTotal > 0 ? Math.round((vocabularyCorrect / vocabularyTotal) * 100) : 0;
+            
+            const phrasesCorrect = phrasesTestAnswers.filter(answer => answer.correct).length;
+            const phrasesTotal = phrasesTestAnswers.length;
+            const phrasesScore = phrasesTotal > 0 ? Math.round((phrasesCorrect / phrasesTotal) * 100) : 0;
+            
+            const grammarCorrect = grammarTestAnswers.filter(answer => answer.correct).length;
+            const grammarTotal = grammarTestAnswers.length;
+            const grammarScore = grammarTotal > 0 ? Math.round((grammarCorrect / grammarTotal) * 100) : 0;
+            
+            const readingScore = userProgress.modules.reading ? userProgress.modules.reading.score : 0;
+            const readingTotal = userProgress.modules.reading ? userProgress.modules.reading.total : 0;
+            const readingPercentage = readingTotal > 0 ? Math.round((readingScore / readingTotal) * 100) : 0;
+            
+            const listeningScore = userProgress.modules.listening ? userProgress.modules.listening.score : 0;
+            const listeningTotal = userProgress.modules.listening ? userProgress.modules.listening.total : 0;
+            const listeningPercentage = listeningTotal > 0 ? Math.round((listeningScore / listeningTotal) * 100) : 0;
+            
+            const totalScore = Math.round((vocabularyScore + phrasesScore + grammarScore + readingPercentage + listeningPercentage) / 5);
+            
+            // 计算总星星数
+            let totalStars = 0;
+            if (totalScore >= 90) {
+                totalStars = 3;
+            } else if (totalScore >= 70) {
+                totalStars = 2;
+            } else if (totalScore >= 50) {
+                totalStars = 1;
+            }
+            
+            // 记录学习时间
+            const endTime = new Date();
+            const studyTime = Math.round((endTime - startTime) / 1000 / 60); // 分钟
+            userProgress.totalStudyTime += studyTime;
+            
+            // 记录成绩
+            userProgress.dayScores[userProgress.currentDay] = {
+                vocabulary: {
+                    score: vocabularyScore,
+                    stars: vocabularyScore >= 90 ? 3 : vocabularyScore >= 70 ? 2 : vocabularyScore >= 50 ? 1 : 0
+                },
+                phrases: {
+                    score: phrasesScore,
+                    stars: phrasesScore >= 90 ? 3 : phrasesScore >= 70 ? 2 : phrasesScore >= 50 ? 1 : 0
+                },
+                grammar: {
+                    score: grammarScore,
+                    stars: grammarScore >= 90 ? 3 : grammarScore >= 70 ? 2 : grammarScore >= 50 ? 1 : 0
+                },
+                total: {
+                    score: totalScore,
+                    stars: totalStars
+                },
+                time: studyTime,
+                accuracy: totalScore,
+                date: new Date().toDateString()
+            };
+            
+            // 标记为已完成
+            if (!userProgress.completedDays.includes(userProgress.currentDay)) {
+                userProgress.completedDays.push(userProgress.currentDay);
+            }
+            
+            // 更新每周数据
+            updateWeeklyData();
+            
+            // 检查是否获得新勋章
+            checkMedals();
+            
+            // 保存数据
+            saveUserData();
+            
+            // 显示完成页面
+            learningSection.classList.add('hidden');
+            completeSection.classList.remove('hidden');
+            
+            // 更新完成页面
+            document.getElementById('completeDay').textContent = userProgress.currentDay;
+            
+            // 更新星星
+            updateStars('completeVocabularyStars', userProgress.dayScores[userProgress.currentDay].vocabulary.stars);
+            updateStars('completePhrasesStars', userProgress.dayScores[userProgress.currentDay].phrases.stars);
+            updateStars('completeGrammarStars', userProgress.dayScores[userProgress.currentDay].grammar.stars);
+            updateStars('completeTotalStars', userProgress.dayScores[userProgress.currentDay].total.stars);
+            
+            // 更新学习报告
+            document.getElementById('studyTime').textContent = `${studyTime}分钟`;
+            document.getElementById('accuracyRate').textContent = `${totalScore}%`;
+            
+            // 分析薄弱点
+            const weakPoints = [];
+            if (vocabularyScore < 70) weakPoints.push('单词');
+            if (phrasesScore < 70) weakPoints.push('词组');
+            if (grammarScore < 70) weakPoints.push('语法');
+            
+            document.getElementById('weakPoints').textContent = weakPoints.length > 0 ? weakPoints.join('、') : '无明显薄弱点';
+            
+            // 生成建议
+            let suggestions = '';
+            if (weakPoints.includes('单词')) suggestions += '多练习单词记忆和拼写；';
+            if (weakPoints.includes('词组')) suggestions += '加强词组的理解和应用；';
+            if (weakPoints.includes('语法')) suggestions += '复习语法规则并多做练习；';
+            if (suggestions === '') suggestions = '继续保持良好的学习状态！';
+            
+            document.getElementById('suggestions').textContent = suggestions;
+            
+            // 更新错题数量
+            const totalWrongAnswers = userProgress.wrongAnswers.vocabulary.length + 
+                                      userProgress.wrongAnswers.phrases.length + 
+                                      userProgress.wrongAnswers.grammar.length;
+            document.getElementById('wrongAnswersCount').textContent = totalWrongAnswers;
+            
+            // 更新连续打卡
+            document.getElementById('streakDays').textContent = userProgress.consecutiveDays;
+            
+            // 计算距离下一个勋章的天数
+            let daysToNextMedal = 0;
+            if (!userProgress.medals.includes('7days')) {
+                daysToNextMedal = 7 - userProgress.consecutiveDays;
+            } else if (!userProgress.medals.includes('30days')) {
+                daysToNextMedal = 30 - userProgress.consecutiveDays;
+            } else if (!userProgress.medals.includes('180days')) {
+                daysToNextMedal = 180 - userProgress.completedDays.length;
+            }
+            
+            document.getElementById('daysToNextMedal').textContent = daysToNextMedal > 0 ? daysToNextMedal : 0;
+            
+            // 播放完成音效
+            if (userProgress.settings.sound) {
+                completeAudio.play();
+            }
+        }
+        
+        // 开始下一天
+        function startNextDay() {
+            userProgress.currentDay++;
+            saveUserData();
+            
+            completeSection.classList.add('hidden');
+            learningSection.classList.remove('hidden');
+            
+            startTodayLesson();
+        }
+        
+        // 返回首页
+        function backToHome() {
+            completeSection.classList.add('hidden');
+            welcomeSection.classList.remove('hidden');
+            
+            // 更新欢迎页面
+            updateWelcomePage();
+            
+            // 更新勋章页面
+            updateMedalPage();
+            
+            // 更新报告页面
+            updateReportPage();
+        }
+        
+        // 查看错题
+        function reviewWrongAnswers() {
+            // 实现错题复习功能
+            alert('错题复习功能即将上线！');
+        }
+        
+        // 显示勋章页面
+        function showMedalPage() {
+            welcomeSection.classList.add('hidden');
+            learningSection.classList.add('hidden');
+            completeSection.classList.add('hidden');
+            medalSection.classList.remove('hidden');
+            reportSection.classList.add('hidden');
+            settingsSection.classList.add('hidden');
+        }
+        
+        // 隐藏勋章页面
+        function hideMedalPage() {
+            medalSection.classList.add('hidden');
+            welcomeSection.classList.remove('hidden');
+        }
+        
+        // 显示报告页面
+        function showReportPage() {
+            welcomeSection.classList.add('hidden');
+            learningSection.classList.add('hidden');
+            completeSection.classList.add('hidden');
+            medalSection.classList.add('hidden');
+            reportSection.classList.remove('hidden');
+            settingsSection.classList.add('hidden');
+        }
+        
+        // 隐藏报告页面
+        function hideReportPage() {
+            reportSection.classList.add('hidden');
+            welcomeSection.classList.remove('hidden');
+        }
+        
+        // 显示设置页面
+        function showSettingsPage() {
+            welcomeSection.classList.add('hidden');
+            learningSection.classList.add('hidden');
+            completeSection.classList.add('hidden');
+            medalSection.classList.add('hidden');
+            reportSection.classList.add('hidden');
+            settingsSection.classList.remove('hidden');
+            
+            // 更新设置
+            document.getElementById('soundToggle').checked = userProgress.settings.sound;
+            document.getElementById('autoPlayToggle').checked = userProgress.settings.autoPlay;
+            document.getElementById('studyTimeInput').value = userProgress.settings.studyTimeGoal;
+        }
+        
+        // 隐藏设置页面
+        function hideSettingsPage() {
+            settingsSection.classList.add('hidden');
+            welcomeSection.classList.remove('hidden');
+        }
+        
+        // 切换音效
+        function toggleSound() {
+            userProgress.settings.sound = document.getElementById('soundToggle').checked;
+            saveUserData();
+        }
+        
+        // 切换自动播放
+        function toggleAutoPlay() {
+            userProgress.settings.autoPlay = document.getElementById('autoPlayToggle').checked;
+            saveUserData();
+        }
+        
+        // 更改学习时间目标
+        function changeStudyTimeGoal() {
+            userProgress.settings.studyTimeGoal = parseInt(document.getElementById('studyTimeInput').value);
+            saveUserData();
+        }
+        
+        // 保存数据
+        function saveData() {
+            saveUserData();
+            showNotification('数据保存成功！', 'success');
+        }
+        
+        // 导出数据
+        function exportData() {
+            const dataStr = JSON.stringify(userProgress);
+            const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+            
+            const exportFileName = `english_adventure_data_${new Date().toISOString().slice(0, 10)}.json`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileName);
+            linkElement.click();
+            
+            showNotification('数据导出成功！', 'success');
+        }
+        
+        // 导入数据
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importedData = JSON.parse(e.target.result);
+                    
+                    // 验证数据格式
+                    if (importedData.currentDay && importedData.completedDays) {
+                        userProgress = importedData;
+                        saveUserData();
+                        showNotification('数据导入成功！', 'success');
+                        
+                        // 更新页面
+                        updateWelcomePage();
+                        updateMedalPage();
+                        updateReportPage();
+                    } else {
+                        showNotification('数据格式不正确！', 'error');
+                    }
+                } catch (error) {
+                    showNotification('数据导入失败！', 'error');
+                }
+            };
+            reader.readAsText(file);
+        }
+        
+        // 重置数据
+        function resetData() {
+            if (confirm('确定要重置所有学习数据吗？此操作不可恢复！')) {
+                userProgress = {
+                    currentDay: 1,
+                    completedDays: [],
+                    dayScores: {},
+                    consecutiveDays: 0,
+                    lastStudyDate: null,
+                    medals: [],
+                    wrongAnswers: {
+                        vocabulary: [],
+                        phrases: [],
+                        grammar: []
+                    },
+                    settings: {
+                        sound: true,
+                        autoPlay: true,
+                        studyTimeGoal: 20
+                    },
+                    totalStudyTime: 0,
+                    wordMastery: {},
+                    phraseMastery: {},
+                    grammarMastery: {}
+                };
+                
+                // 听力训练数据
+        const listeningData = [
+            {
+                id: 1,
+                title: "Daily Conversation",
+                audioUrl: "https://example.com/audio1.mp3", // 实际使用时替换为真实音频链接
+                transcript: "A: Hello, how are you today? B: I'm fine, thank you. And you? A: I'm great! What are you doing this weekend? B: I'm going to visit my grandparents. A: That sounds nice. B: Yes, I miss them very much.",
+                questions: [
+                    {
+                        question: "How is person A feeling today?",
+                        options: ["Fine", "Great", "Sad", "Tired"],
+                        answer: 1
+                    },
+                    {
+                        question: "What is person B going to do this weekend?",
+                        options: ["Visit friends", "Go shopping", "Visit grandparents", "Stay at home"],
+                        answer: 2
+                    }
+                ]
+            },
+            {
+                id: 2,
+                title: "At the Restaurant",
+                audioUrl: "https://example.com/audio2.mp3",
+                transcript: "Waiter: Good evening! Welcome to our restaurant. A: Good evening! Table for two, please. Waiter: Follow me, please. Here's your table. A: Thank you. Can we see the menu? Waiter: Sure, here you are. Today's special is fish and chips.",
+                questions: [
+                    {
+                        question: "How many people are dining?",
+                        options: ["One", "Two", "Three", "Four"],
+                        answer: 1
+                    },
+                    {
+                        question: "What is today's special?",
+                        options: ["Fish and chips", "Chicken soup", "Pasta", "Salad"],
+                        answer: 0
+                    }
+                ]
+            }
+        ];
+                initWeeklyData();
+                
+                saveUserData();
+                
+                // 更新页面
+                updateWelcomePage();
+                updateMedalPage();
+                updateReportPage();
+                
+                showNotification('数据已重置！', 'success');
+            }
+        }
+
+        // 生成每日短文
+        function generateDailyStory() {
+            const currentDay = userProgress.currentDay - 1; // 获取当天学习的单词
+            const dayWords = vocabularyData.slice((currentDay - 1) * 5, currentDay * 5);
+            
+            // 根据当天学习的单词生成短文
+            const storyTemplates = [
+                `今天，我学习了几个新单词。第一个是${dayWords[0].word}，意思是${dayWords[0].definition}。我可以用它造句：${dayWords[0].example}。`,
+                `我最喜欢的新单词是${dayWords[1].word}，它的发音是${dayWords[1].phonetic}。`,
+                `学习英语很有趣，特别是当我学会了像${dayWords[2].word}这样的单词。`,
+                `我需要记住${dayWords[3].word}的拼写，它的意思是${dayWords[3].definition}。`,
+                `明天，我会继续学习更多单词，就像今天学习${dayWords[4].word}一样。`
+            ];
+            
+            let story = storyTemplates.join(' ');
+            
+            // 显示生成的短文
+            document.getElementById('generatedStory').textContent = story;
+            document.getElementById('storySection').classList.remove('hidden');
+            
+            // 保存到用户进度中
+            if (!userProgress.dailyStories) {
+                userProgress.dailyStories = {};
+            }
+            userProgress.dailyStories[currentDay] = story;
+            saveUserData();
+            
+            showNotification('每日短文生成成功！', 'success');
+        }
+
+        // 朗读短文
+        function readStoryAloud() {
+            const story = document.getElementById('generatedStory').textContent;
+            if (!story) {
+                showNotification('请先生成短文！', 'error');
+                return;
+            }
+            
+            // 使用Web Speech API朗读短文
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(story);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.9; // 稍微放慢语速
+                speechSynthesis.speak(utterance);
+            } else {
+                showNotification('您的浏览器不支持语音朗读功能！', 'error');
+            }
+        }
+
+        // 保存短文
+        function saveStory() {
+            const story = document.getElementById('generatedStory').textContent;
+            if (!story) {
+                showNotification('请先生成短文！', 'error');
+                return;
+            }
+            
+            const currentDay = userProgress.currentDay - 1;
+            const dataStr = `第${currentDay}天学习短文：\n\n${story}`;
+            const dataUri = 'data:text/plain;charset=utf-8,' + encodeURIComponent(dataStr);
+            
+            const exportFileName = `english_story_day_${currentDay}.txt`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileName);
+            linkElement.click();
+            
+            showNotification('短文保存成功！', 'success');
+        }
+        
+        // 显示通知
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 transition-opacity duration-300 ${type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        // 工具函数：随机排序数组
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        // 初始化应用
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
