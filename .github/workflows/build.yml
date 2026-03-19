@@ -23,26 +23,21 @@ jobs:
         run: |
           mkdir -p $HOME/android-sdk/cmdline-tools
           cd $HOME/android-sdk/cmdline-tools
-          wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdline-tools.zip
+          curl -sL https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -o cmdline-tools.zip
           unzip -q cmdline-tools.zip
           mv cmdline-tools latest
           export ANDROID_HOME=$HOME/android-sdk
           export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
-          yes | sdkmanager --licenses > /dev/null 2>&1
-          sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0" > /dev/null 2>&1
+          yes | sdkmanager --licenses > /dev/null 2>&1 || true
+          sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
 
       - name: Create local.properties
-        run: |
-          echo "sdk.dir=$HOME/android-sdk" > local.properties
+        run: echo "sdk.dir=$HOME/android-sdk" > local.properties
 
-      - name: Run Gradle
+      - name: Build APK
         run: |
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
-
-      - name: Find APK
-        run: |
-          find . -name "*.apk" -type f
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
